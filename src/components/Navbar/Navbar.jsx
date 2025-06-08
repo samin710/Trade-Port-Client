@@ -1,0 +1,184 @@
+import React, { use } from "react";
+import { NavLink, useNavigate } from "react-router";
+import { AuthContext } from "../../providers/AuthContext";
+import { toast } from "react-toastify";
+import logoImg from "../../assets/logo.png";
+
+const Navbar = () => {
+  const { user, logout } = use(AuthContext);
+  const navigate = useNavigate();
+  const handleLogout = () => {
+    logout()
+      .then(() => {
+        toast.success("Successfully SignOut");
+        navigate("/");
+      })
+      .catch((error) => {
+        console.log(error.massage);
+      });
+  };
+  return (
+    <>
+      <div className="navbar bg-base-100 shadow-md shadow-secondary my-3 md:my-8 duration-1000 ease-in-out transition-colors">
+        <div className="navbar-start">
+          <div className="dropdown">
+            <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-5 w-5"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                {" "}
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M4 6h16M4 12h8m-8 6h16"
+                />{" "}
+              </svg>
+            </div>
+            <ul
+              tabIndex={0}
+              className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
+            >
+              <li>
+                <NavLink to={"/"}>Home</NavLink>
+              </li>
+              <li>
+                <NavLink to={"/allRecipes"}>All Recipes</NavLink>
+              </li>
+              <li>
+                <NavLink to={"/addRecipe"}>Add Recipe</NavLink>
+              </li>
+              <li>
+                <NavLink to={"/myRecipes"}>My Recipes</NavLink>
+              </li>
+              {user ? (
+                <div className="p-2">
+                  <button onClick={handleLogout}>SignOut</button>
+                </div>
+              ) : (
+                <div className="">
+                  <li>
+                    <NavLink to={"/signIn"}>SignIn</NavLink>
+                  </li>
+                  <li>
+                    <NavLink to={"/signUp"}>SignUp</NavLink>
+                  </li>
+                </div>
+              )}
+            </ul>
+          </div>
+          <div className="flex items-center gap-2">
+            <div className="md:w-12 w-10">
+              <img
+                src={logoImg}
+                alt="Logo"
+                className="w-full rounded-md mx-auto mb-2"
+              />
+            </div>
+            <a className="hidden md:block text-xl md:text-2xl">
+              Recipe Book App
+            </a>
+          </div>
+        </div>
+        <div className="navbar-center hidden lg:flex ">
+          <ul className="menu menu-horizontal px-1 gap-5">
+            <li>
+              <NavLink
+                to={"/"}
+                className={({ isActive }) =>
+                  isActive
+                    ? "bg-primary text-white font-medium btn duration-1000 ease-in-out transition-colors"
+                    : "border-b-4 border-b-primary border-secondary text-primary font-medium btn duration-1000 ease-in-out transition-colors"
+                }
+              >
+                Home
+              </NavLink>
+            </li>
+            <li>
+              <NavLink
+                to={"/allRecipes"}
+                className={({ isActive }) =>
+                  isActive
+                    ? "bg-primary text-white font-medium btn duration-1000 ease-in-out transition-colors"
+                    : "border-b-4 border-b-primary border-secondary text-primary font-medium btn duration-1000 ease-in-out transition-colors"
+                }
+              >
+                All Recipes
+              </NavLink>
+            </li>
+            <li>
+              <NavLink
+                to={"/addRecipe"}
+                className={({ isActive }) =>
+                  isActive
+                    ? "bg-primary text-white font-medium btn duration-1000 ease-in-out transition-colors"
+                    : "border-b-4 border-b-primary border-secondary text-primary font-medium btn duration-1000 ease-in-out transition-colors"
+                }
+              >
+                Add Recipe
+              </NavLink>
+            </li>
+            <li>
+              <NavLink
+                to={"/myRecipes"}
+                className={({ isActive }) =>
+                  isActive
+                    ? "bg-primary text-white font-medium btn duration-1000 ease-in-out transition-colors"
+                    : "border-b-4 border-b-primary border-secondary text-primary font-medium btn duration-1000 ease-in-out transition-colors"
+                }
+              >
+                My Recipes
+              </NavLink>
+            </li>
+          </ul>
+        </div>
+        <div className="navbar-end hidden md:flex">
+          {user ? (
+            <div className="relative menu-horizontal gap-3">
+              {/* Avatar Button */}
+              <div className="relative">
+                <button>
+                  <img
+                    className="w-10 h-10 rounded-full"
+                    src={user.photoURL}
+                    alt="User Avatar"
+                  />
+                </button>
+              </div>
+            </div>
+          ) : (
+            <div className="menu-horizontal gap-3">
+              <NavLink
+                className={({ isActive }) =>
+                  isActive
+                    ? "bg-primary text-white font-medium btn duration-1000 ease-in-out transition-colors"
+                    : "border-b-4 border-b-primary border-secondary text-primary font-medium btn duration-1000 ease-in-out transition-colors"
+                }
+                to={"/signIn"}
+              >
+                SignIn
+              </NavLink>
+
+              <NavLink
+                className={({ isActive }) =>
+                  isActive
+                    ? "bg-primary text-white font-medium btn duration-1000 ease-in-out transition-colors"
+                    : "border-b-4 border-b-primary border-secondary text-primary font-medium btn duration-1000 ease-in-out transition-colors"
+                }
+                to={"/signUp"}
+              >
+                SignUp
+              </NavLink>
+            </div>
+          )}
+        </div>
+      </div>
+    </>
+  );
+};
+
+export default Navbar;

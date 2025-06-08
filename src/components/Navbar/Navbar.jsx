@@ -72,16 +72,14 @@ const Navbar = () => {
             </ul>
           </div>
           <div className="flex items-center gap-2">
-            <div className="md:w-12 w-10">
+            <div className="md:w-12 w-10 ">
               <img
                 src={logoImg}
                 alt="Logo"
-                className="w-full rounded-md mx-auto mb-2"
+                className="w-full rounded-md mx-auto border border-primary"
               />
             </div>
-            <a className="hidden md:block text-xl md:text-2xl">
-              Recipe Book App
-            </a>
+            <a className="hidden md:block text-xl md:text-2xl">TradePort</a>
           </div>
         </div>
         <div className="navbar-center hidden lg:flex ">

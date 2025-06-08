@@ -19,7 +19,7 @@ const Navbar = () => {
   };
   return (
     <>
-      <div className="navbar bg-base-100 shadow-md shadow-secondary my-3 md:my-8 duration-1000 ease-in-out transition-colors">
+      <div className="navbar my-3 md:my-8 rounded-lg shadow-md shadow-secondary ">
         <div className="navbar-start">
           <div className="dropdown">
             <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -82,15 +82,15 @@ const Navbar = () => {
             <a className="hidden md:block text-xl md:text-2xl">TradePort</a>
           </div>
         </div>
-        <div className="navbar-center hidden lg:flex ">
+        <div className="navbar-center bg-secondary rounded-4xl px-4 hidden lg:flex ">
           <ul className="menu menu-horizontal px-1 gap-5">
             <li>
               <NavLink
                 to={"/"}
                 className={({ isActive }) =>
                   isActive
-                    ? "bg-primary text-white font-medium btn duration-1000 ease-in-out transition-colors"
-                    : "border-b-4 border-b-primary border-secondary text-primary font-medium btn duration-1000 ease-in-out transition-colors"
+                    ? " text-primary font-medium border-b-4 border-b-primary "
+                    : " font-medium "
                 }
               >
                 Home
@@ -101,11 +101,11 @@ const Navbar = () => {
                 to={"/allRecipes"}
                 className={({ isActive }) =>
                   isActive
-                    ? "bg-primary text-white font-medium btn duration-1000 ease-in-out transition-colors"
-                    : "border-b-4 border-b-primary border-secondary text-primary font-medium btn duration-1000 ease-in-out transition-colors"
+                    ? " text-primary font-medium border-b-4 border-b-primary "
+                    : " font-medium "
                 }
               >
-                All Recipes
+                Categories
               </NavLink>
             </li>
             <li>
@@ -113,11 +113,11 @@ const Navbar = () => {
                 to={"/addRecipe"}
                 className={({ isActive }) =>
                   isActive
-                    ? "bg-primary text-white font-medium btn duration-1000 ease-in-out transition-colors"
-                    : "border-b-4 border-b-primary border-secondary text-primary font-medium btn duration-1000 ease-in-out transition-colors"
+                    ? " text-primary font-medium border-b-4 border-b-primary "
+                    : " font-medium "
                 }
               >
-                Add Recipe
+                All product
               </NavLink>
             </li>
             <li>
@@ -125,11 +125,35 @@ const Navbar = () => {
                 to={"/myRecipes"}
                 className={({ isActive }) =>
                   isActive
-                    ? "bg-primary text-white font-medium btn duration-1000 ease-in-out transition-colors"
-                    : "border-b-4 border-b-primary border-secondary text-primary font-medium btn duration-1000 ease-in-out transition-colors"
+                    ? " text-primary font-medium border-b-4 border-b-primary "
+                    : " font-medium "
                 }
               >
-                My Recipes
+                Add Product
+              </NavLink>
+            </li>
+            <li>
+              <NavLink
+                to={"/myRecipes"}
+                className={({ isActive }) =>
+                  isActive
+                    ? " text-primary font-medium border-b-4 border-b-primary "
+                    : " font-medium "
+                }
+              >
+                My product
+              </NavLink>
+            </li>
+            <li>
+              <NavLink
+                to={"/myRecipes"}
+                className={({ isActive }) =>
+                  isActive
+                    ? " text-primary font-medium border-b-4 border-b-primary "
+                    : " font-medium "
+                }
+              >
+                Cart
               </NavLink>
             </li>
           </ul>
@@ -153,8 +177,8 @@ const Navbar = () => {
               <NavLink
                 className={({ isActive }) =>
                   isActive
-                    ? "bg-primary text-white font-medium btn duration-1000 ease-in-out transition-colors"
-                    : "border-b-4 border-b-primary border-secondary text-primary font-medium btn duration-1000 ease-in-out transition-colors"
+                    ? "bg-primary text-white font-medium btn "
+                    : "border-b-4 border-b-primary border-secondary text-primary font-medium btn "
                 }
                 to={"/signIn"}
               >
@@ -164,8 +188,8 @@ const Navbar = () => {
               <NavLink
                 className={({ isActive }) =>
                   isActive
-                    ? "bg-primary text-white font-medium btn duration-1000 ease-in-out transition-colors"
-                    : "border-b-4 border-b-primary border-secondary text-primary font-medium btn duration-1000 ease-in-out transition-colors"
+                    ? "bg-primary text-white font-medium btn "
+                    : "border-b-4 border-b-primary border-secondary text-primary font-medium btn "
                 }
                 to={"/signUp"}
               >

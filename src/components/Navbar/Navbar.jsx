@@ -104,7 +104,7 @@ const Navbar = () => {
             </li>
             <li>
               <NavLink
-                to={"/allRecipes"}
+                to={"/categories"}
                 className={({ isActive }) =>
                   isActive
                     ? " text-primary font-medium border-b-4 border-b-primary "
@@ -116,19 +116,19 @@ const Navbar = () => {
             </li>
             <li>
               <NavLink
-                to={"/addRecipe"}
+                to={"/allProducts"}
                 className={({ isActive }) =>
                   isActive
                     ? " text-primary font-medium border-b-4 border-b-primary "
                     : " font-medium "
                 }
               >
-                All product
+                All products
               </NavLink>
             </li>
             <li>
               <NavLink
-                to={"/myRecipes"}
+                to={"/addProduct"}
                 className={({ isActive }) =>
                   isActive
                     ? " text-primary font-medium border-b-4 border-b-primary "
@@ -140,19 +140,19 @@ const Navbar = () => {
             </li>
             <li>
               <NavLink
-                to={"/myRecipes"}
+                to={"/myProducts"}
                 className={({ isActive }) =>
                   isActive
                     ? " text-primary font-medium border-b-4 border-b-primary "
                     : " font-medium "
                 }
               >
-                My product
+                My products
               </NavLink>
             </li>
             <li>
               <NavLink
-                to={"/myRecipes"}
+                to={"/cart"}
                 className={({ isActive }) =>
                   isActive
                     ? " text-primary font-medium border-b-4 border-b-primary "
@@ -177,7 +177,11 @@ const Navbar = () => {
                   />
                 </button>
               </div>
-              <Tooltip className="space-y-2" anchorSelect="#clickable" clickable>
+              <Tooltip
+                className="space-y-2"
+                anchorSelect="#clickable"
+                clickable
+              >
                 <p>{user.displayName}</p>
                 <button
                   onClick={() => {

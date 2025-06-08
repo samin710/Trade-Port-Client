@@ -3,10 +3,16 @@ import { NavLink, useNavigate } from "react-router";
 import { AuthContext } from "../../providers/AuthContext";
 import { toast } from "react-toastify";
 import logoImg from "../../assets/logo.png";
+import { Tooltip } from "react-tooltip";
+import Loading from "../Loading/Loading";
 
 const Navbar = () => {
-  const { user, logout } = use(AuthContext);
+  const { user, logout, loading } = use(AuthContext);
+
   const navigate = useNavigate();
+
+  if (loading) return <Loading></Loading>;
+
   const handleLogout = () => {
     logout()
       .then(() => {
@@ -79,7 +85,7 @@ const Navbar = () => {
                 className="w-full rounded-md mx-auto border border-primary"
               />
             </div>
-            <a className="hidden md:block text-xl md:text-2xl">TradePort</a>
+            <p className="hidden md:block text-xl md:text-2xl">TradePort</p>
           </div>
         </div>
         <div className="navbar-center bg-secondary rounded-4xl px-4 hidden lg:flex ">
@@ -162,7 +168,7 @@ const Navbar = () => {
           {user ? (
             <div className="relative menu-horizontal gap-3">
               {/* Avatar Button */}
-              <div className="relative">
+              <div id="clickable">
                 <button>
                   <img
                     className="w-10 h-10 rounded-full"
@@ -171,6 +177,17 @@ const Navbar = () => {
                   />
                 </button>
               </div>
+              <Tooltip className="space-y-2" anchorSelect="#clickable" clickable>
+                <p>{user.displayName}</p>
+                <button
+                  onClick={() => {
+                    handleLogout();
+                  }}
+                  className="w-full border-primary border text-center rounded-md px-4 py-2 text-sm bg-primary cursor-pointer"
+                >
+                  Logout
+                </button>
+              </Tooltip>
             </div>
           ) : (
             <div className="menu-horizontal gap-3">

@@ -53,16 +53,22 @@ const Navbar = () => {
                 <NavLink to={"/"}>Home</NavLink>
               </li>
               <li>
-                <NavLink to={"/allRecipes"}>All Recipes</NavLink>
+                <NavLink to={"/categories"}>Categories</NavLink>
               </li>
               <li>
-                <NavLink to={"/addRecipe"}>Add Recipe</NavLink>
+                <NavLink to={"/allProducts"}>All products</NavLink>
               </li>
               <li>
-                <NavLink to={"/myRecipes"}>My Recipes</NavLink>
+                <NavLink to={"/addProduct"}>Add Product</NavLink>
+              </li>
+              <li>
+                <NavLink to={"/myProducts"}>My products</NavLink>
+              </li>
+              <li>
+                <NavLink to={"/cart"}>Cart</NavLink>
               </li>
               {user ? (
-                <div className="p-2">
+                <div className="p-2 rounded-lg text-center bg-secondary cursor-pointer">
                   <button onClick={handleLogout}>SignOut</button>
                 </div>
               ) : (

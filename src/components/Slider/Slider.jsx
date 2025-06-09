@@ -28,7 +28,10 @@ const Slider = () => {
 
   return (
     <>
-      <h1 className="text-center mt-7 md:mt-14 text-2xl md:text-4xl"> Deals You Can’t Miss</h1>
+      <h1 className="text-center mt-7 md:mt-14 text-2xl md:text-4xl">
+        Deals You Can’t Miss
+      </h1>
+      <p className="text-center">Swipe through the hottest offers of the season.</p>
       <div className="w-full max-w-7xl mx-auto ">
         <Swiper
           onSwiper={(swiper) => {

@@ -1,7 +1,14 @@
-import React from "react";
+import React, { use } from "react";
 import { useForm } from "react-hook-form";
+import { AuthContext } from "../../providers/AuthContext";
+import axios from "axios";
+import { toast } from "react-toastify";
+import { useNavigate } from "react-router";
 
 const AddProduct = () => {
+  const { user } = use(AuthContext);
+  const navigate = useNavigate();
+
   const {
     register,
     handleSubmit,
@@ -9,7 +16,20 @@ const AddProduct = () => {
   } = useForm();
 
   const onSubmit = (data) => {
-    
+    const formData = {
+      ...data,
+      userEmail: user.email,
+    };
+
+    axios
+      .post("http://localhost:3000/products", formData)
+      .then(() => {
+        toast.success("Successfully Added Product");
+        navigate("/allProducts");
+      })
+      .catch((error) => {
+        toast.error(error);
+      });
   };
 
   return (
@@ -108,7 +128,8 @@ const AddProduct = () => {
           </div>
 
           <div className="form-control">
-            <label className="label font-semibold">Rating (1–5)</label><br/>
+            <label className="label font-semibold">Rating (1–5)</label>
+            <br />
             <input
               type="number"
               min="1"
@@ -127,7 +148,8 @@ const AddProduct = () => {
           </div>
 
           <div className="form-control">
-            <label className="label font-semibold">Category</label><br/>
+            <label className="label font-semibold">Category</label>
+            <br />
             <select
               {...register("category", { required: "Category is required" })}
               className="select select-bordered focus:outline-none focus:border-primary"

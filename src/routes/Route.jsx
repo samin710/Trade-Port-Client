@@ -8,6 +8,7 @@ import AddProduct from "../pages/AddProduct/AddProduct";
 import MyProducts from "../pages/MyProducts/MyProducts";
 import PrivateRoute from "../providers/PrivateRoute";
 import Cart from "../pages/Cart/Cart";
+import Categories from "../pages/Categories/Categories";
 
 export const router = createBrowserRouter([
   {
@@ -17,6 +18,10 @@ export const router = createBrowserRouter([
       {
         index: true,
         Component: Home,
+      },
+      {
+        path: "categories",
+        Component: Categories,
       },
       {
         path: "allProducts",

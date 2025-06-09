@@ -3,6 +3,7 @@ import { FaStar, FaEdit } from "react-icons/fa";
 
 const ProductCard = ({ product }) => {
   const { image, name, category, price, rating } = product;
+
   return (
     <>
       <div className="py-10 ">

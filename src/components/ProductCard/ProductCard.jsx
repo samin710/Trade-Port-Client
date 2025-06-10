@@ -1,8 +1,9 @@
 import React from "react";
 import { FaStar, FaEdit } from "react-icons/fa";
+import { Link } from "react-router";
 
 const ProductCard = ({ product }) => {
-  const { image, name, category, price, rating } = product;
+  const { image, name, category, price, rating, brand, _id } = product;
 
   return (
     <>
@@ -13,6 +14,7 @@ const ProductCard = ({ product }) => {
           </figure>
           <div className="card-body">
             <h2 className="card-title">{name}</h2>
+            <p>{brand}</p>
             <p>
               <strong>Category:</strong> {category}
             </p>
@@ -26,12 +28,15 @@ const ProductCard = ({ product }) => {
                 ))}
               </span>
             </p>
-            <div className="card-actions mt-4 justify-end">
+            <Link
+              to={`/update/${_id}`}
+              className="card-actions mt-4 justify-end"
+            >
               <button className="btn btn-outline btn-primary flex items-center gap-2">
                 <FaEdit />
                 Update
               </button>
-            </div>
+            </Link>
           </div>
         </div>
       </div>

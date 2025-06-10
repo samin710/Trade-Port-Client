@@ -9,6 +9,8 @@ import MyProducts from "../pages/MyProducts/MyProducts";
 import PrivateRoute from "../providers/PrivateRoute";
 import Cart from "../pages/Cart/Cart";
 import Categories from "../pages/Categories/Categories";
+import CategoryWiseProducts from "../pages/CategoryWiseProducts/CategoryWiseProducts";
+import Update from "../pages/Update/Update";
 
 export const router = createBrowserRouter([
   {
@@ -24,6 +26,12 @@ export const router = createBrowserRouter([
         Component: Categories,
       },
       {
+        path: "categoryWiseProducts/:category",
+        loader: ({ params }) =>
+          fetch(`http://localhost:3000/products/${params.category}`),
+        Component: CategoryWiseProducts,
+      },
+      {
         path: "allProducts",
         loader: () => fetch("http://localhost:3000/products"),
         element: (
@@ -31,6 +39,12 @@ export const router = createBrowserRouter([
             <AllProducts></AllProducts>
           </PrivateRoute>
         ),
+      },
+      {
+        path: "update/:id",
+        loader: ({ params }) =>
+          fetch(`http://localhost:3000/products/${params.id}`),
+        Component: Update,
       },
       {
         path: "addProduct",

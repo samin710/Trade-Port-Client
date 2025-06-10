@@ -158,13 +158,13 @@ const AddProduct = () => {
               <option value="" disabled>
                 Select a Category
               </option>
-              <option>Electronics & Gadgets</option>
-              <option>Home & Kitchen Appliances</option>
-              <option>Fashion & Apparel</option>
-              <option>Industrial Machinery & Tools</option>
-              <option>Health & Beauty</option>
-              <option>Automotive Parts & Accessories</option>
-              <option>Office Supplies & Stationery</option>
+              <option>Electronics and Gadgets</option>
+              <option>Home and Kitchen Appliances</option>
+              <option>Fashion and Apparel</option>
+              <option>Industrial Machinery and Tools</option>
+              <option>Health and Beauty</option>
+              <option>Automotive Parts and Accessories</option>
+              <option>Office Supplies and Stationery</option>
             </select>
             {errors.category && (
               <p className="text-red-500 text-sm">{errors.category.message}</p>

@@ -191,7 +191,7 @@ const Update = () => {
           </div>
 
           <button type="submit" className="btn btn-primary w-full mt-4">
-            Add Product
+            Update Product
           </button>
         </form>
       </div>

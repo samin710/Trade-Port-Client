@@ -19,6 +19,10 @@ const AddProduct = () => {
     const formData = {
       ...data,
       userEmail: user.email,
+      main_quantity: parseInt(data.main_quantity),
+      min_selling_quantity: parseInt(data.min_selling_quantity),
+      price: parseInt(data.price),
+      rating: parseInt(data.rating),
     };
 
     axios

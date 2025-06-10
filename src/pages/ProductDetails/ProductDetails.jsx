@@ -1,6 +1,10 @@
-import React from "react";
+import React, { use, useState } from "react";
 import { FaStar } from "react-icons/fa";
 import { useLoaderData } from "react-router";
+import { AuthContext } from "../../providers/AuthContext";
+import { useForm } from "react-hook-form";
+import axios from "axios";
+import { toast } from "react-toastify";
 
 const ProductDetails = () => {
   const {
@@ -13,7 +17,40 @@ const ProductDetails = () => {
     rating,
     category,
     description,
+    _id,
   } = useLoaderData();
+
+  const { user } = use(AuthContext);
+
+  const [showModal, setShowModal] = useState(false);
+  const [availableQuantity, setAvailableQuantity] = useState(main_quantity);
+
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
+
+  const onSubmit = (data) => {
+    const quantity = data.quantity;
+
+    const updatedQuantity = {
+      quantity,
+    };
+
+    axios
+      .patch(`http://localhost:3000/products/${_id}`, updatedQuantity)
+      .then((res) => {
+        if (res.data.modifiedCount) {
+          toast.success("Order Confirm");
+        }
+        setAvailableQuantity((prev) => prev - quantity);
+        setShowModal(false)
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
 
   return (
     <div className="max-w-5xl mx-auto mt-12 p-6 rounded-2xl shadow-2xl shadow-secondary">
@@ -43,7 +80,7 @@ const ProductDetails = () => {
 
           <p className="text-accent text-lg">
             <strong className="text-primary">Available Quantity:</strong>{" "}
-            {main_quantity}
+            {availableQuantity}
           </p>
 
           <p className="text-accent text-lg">
@@ -64,13 +101,115 @@ const ProductDetails = () => {
             {description}
           </p>
 
-          <div className="pt-6">
+          <div onClick={() => setShowModal(true)} className="pt-6">
             <button className="btn btn-primary btn-wide text-lg font-semibold rounded-xl shadow-md transition-all hover:scale-105">
               Buy Now
             </button>
           </div>
         </div>
       </div>
+
+      {/* Modal */}
+      {showModal && (
+        <div className="fixed inset-0 z-50 backdrop-blur-sm bg-secondary/30 flex items-center justify-center">
+          <div className="bg-white p-8 rounded-2xl w-full max-w-lg shadow-xl space-y-6 border border-primary">
+            <h2 className="text-2xl font-bold text-center text-primary">
+              Checkout Product
+            </h2>
+
+            <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
+              <div>
+                <label className="label font-semibold">Product Name</label>
+                <input
+                  type="text"
+                  value={name}
+                  {...register("name", {
+                    required: "Product name is required",
+                  })}
+                  className="input input-bordered w-full"
+                />
+                {errors.name && (
+                  <p className="text-red-500 text-sm">{errors.name.message}</p>
+                )}
+              </div>
+
+              <div>
+                <label className="label font-semibold">Your Name</label>
+                <input
+                  type="text"
+                  value={user.displayName}
+                  {...register("buyerName", {
+                    required: "Buyer name is required",
+                  })}
+                  className="input input-bordered w-full"
+                />
+                {errors.buyerName && (
+                  <p className="text-red-500 text-sm">
+                    {errors.buyerName.message}
+                  </p>
+                )}
+              </div>
+
+              <div>
+                <label className="label font-semibold">Email</label>
+                <input
+                  type="email"
+                  value={user.email}
+                  {...register("buyerEmail", {
+                    required: "Buyer Email is required",
+                  })}
+                  className="input input-bordered w-full"
+                />
+                {errors.buyerEmail && (
+                  <p className="text-red-500 text-sm">
+                    {errors.buyerEmail.message}
+                  </p>
+                )}
+              </div>
+
+              <div>
+                <label className="label font-semibold">Quantity</label>
+                <div className="flex items-center gap-3">
+                  <button type="button" className="btn btn-sm btn-outline">
+                    −
+                  </button>
+                  <input
+                    type="text"
+                    {...register("quantity", {
+                      required: "Quantity is required",
+                    })}
+                    className="input input-bordered w-24 text-center"
+                  />
+                  {errors.quantity && (
+                    <p className="text-red-500 text-sm">
+                      {errors.quantity.message}
+                    </p>
+                  )}
+                  <button type="button" className="btn btn-sm btn-outline">
+                    +
+                  </button>
+                </div>
+                <p className="text-xs text-gray-500 pt-1">
+                  Min: {min_selling_quantity}, Max: {main_quantity}
+                </p>
+              </div>
+
+              <div className="flex justify-between mt-6">
+                <button
+                  type="button"
+                  onClick={() => setShowModal(false)}
+                  className="btn btn-outline"
+                >
+                  Cancel
+                </button>
+                <button type="submit" className="btn btn-primary">
+                  Confirm Order
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      )}
     </div>
   );
 };

@@ -1,7 +1,7 @@
 import axios from "axios";
 import React from "react";
 import { useForm } from "react-hook-form";
-import { useLoaderData } from "react-router";
+import { useLoaderData, useNavigate } from "react-router";
 import { toast } from "react-toastify";
 
 const Update = () => {
@@ -16,6 +16,8 @@ const Update = () => {
     category,
     description,
   } = useLoaderData();
+
+  const navigate = useNavigate();
 
   const {
     register,
@@ -38,6 +40,7 @@ const Update = () => {
       .catch((error) => {
         console.log(error);
       });
+    navigate("/");
   };
 
   return (

@@ -1,9 +1,12 @@
+import axios from "axios";
 import React from "react";
 import { useForm } from "react-hook-form";
 import { useLoaderData } from "react-router";
+import { toast } from "react-toastify";
 
 const Update = () => {
   const {
+    _id,
     name,
     image,
     main_quantity,
@@ -21,7 +24,20 @@ const Update = () => {
   } = useForm();
 
   const onSubmit = (data) => {
-    console.log(data);
+    const updatedData = {
+      ...data,
+    };
+
+    axios
+      .put(`http://localhost:3000/products/${_id}`, updatedData)
+      .then((res) => {
+        if (res.data.modifiedCount) {
+          toast.success("Update Successful");
+        }
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   };
 
   return (

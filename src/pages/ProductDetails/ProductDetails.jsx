@@ -65,6 +65,7 @@ const ProductDetails = () => {
                 category,
                 description,
                 rating,
+                min_selling_quantity,
               },
             };
 

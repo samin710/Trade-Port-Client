@@ -184,7 +184,7 @@ const Navbar = () => {
                 </button>
               </div>
               <Tooltip
-                className="space-y-2"
+                className="space-y-2 z-50"
                 anchorSelect="#clickable"
                 clickable
               >

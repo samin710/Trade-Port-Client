@@ -41,8 +41,14 @@ const Cart = () => {
                   {item.productDetails.category}
                 </p>
                 <p>
-                  <span className="font-semibold">Quantity:</span>{" "}
-                  {item.quantity}
+                  <span className="font-semibold">
+                    Minimum Buying Quantity:
+                  </span>{" "}
+                  {item.productDetails.min_selling_quantity} units
+                </p>
+                <p>
+                  <span className="font-semibold">Purchase Quantity:</span>{" "}
+                  {item.quantity} units
                 </p>
                 <p>
                   <span className="font-semibold">Total Price:</span>{" "}

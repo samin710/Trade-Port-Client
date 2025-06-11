@@ -43,7 +43,7 @@ const ProductDetails = () => {
         `No sufficient stock. Available stock is ${availableQuantity}`
       );
     } else {
-      const updatedQuantity = { quantity };
+      const updatedQuantity = { quantity, restore: false };
 
       axios
         .patch(`http://localhost:3000/products/${_id}`, updatedQuantity)
@@ -68,7 +68,6 @@ const ProductDetails = () => {
                 min_selling_quantity,
               },
             };
-
             return axios.post("http://localhost:3000/orders", orderInfo);
           }
         })

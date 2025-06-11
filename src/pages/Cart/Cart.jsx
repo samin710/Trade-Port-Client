@@ -2,6 +2,7 @@ import React, { use, useEffect, useState } from "react";
 import { AuthContext } from "../../providers/AuthContext";
 import { FaTrashAlt } from "react-icons/fa";
 import axios from "axios";
+import { toast } from "react-toastify";
 
 const Cart = () => {
   const { user } = use(AuthContext);
@@ -15,6 +16,33 @@ const Cart = () => {
         .catch((err) => console.error(err));
     }
   }, [user]);
+
+  const handleRemove = (id, productId, quantity) => {
+    axios
+      .delete(`http://localhost:3000/orders/${id}`)
+      .then((res) => {
+        if (res.data.deletedCount) {
+          const conQuantity = parseInt(quantity);
+          toast.success("Removed from cart!");
+          setOrders((prev) => prev.filter((order) => order._id !== id));
+
+          return axios.patch(`http://localhost:3000/products/${productId}`, {
+            quantity: conQuantity,
+            restore: true,
+          });
+        }
+      })
+      .then((res) => {
+        if (res.data.modifiedCount) {
+          toast.success("Stock restored");
+        }
+      })
+      .catch((error) => {
+        console.error(error);
+        toast.error("Something went wrong!");
+      });
+  };
+
   return (
     <div className="p-6">
       <h1 className="text-3xl font-bold mb-6 text-center">🛒 My Cart</h1>
@@ -61,7 +89,12 @@ const Cart = () => {
                 <p className="text-sm mt-2">
                   {item.productDetails.description}
                 </p>
-                <div className="card-actions justify-end mt-4">
+                <div
+                  onClick={() =>
+                    handleRemove(item._id, item.productId, item.quantity)
+                  }
+                  className="card-actions justify-end mt-4"
+                >
                   <button className="btn btn-error btn-sm text-white">
                     <FaTrashAlt className="mr-2" /> Remove
                   </button>

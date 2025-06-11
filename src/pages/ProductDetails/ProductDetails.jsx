@@ -24,32 +24,76 @@ const ProductDetails = () => {
 
   const [showModal, setShowModal] = useState(false);
   const [availableQuantity, setAvailableQuantity] = useState(main_quantity);
+  const [quantity, setQuantity] = useState(0);
 
   const {
     register,
     handleSubmit,
+    setValue,
     formState: { errors },
   } = useForm();
 
   const onSubmit = (data) => {
     const quantity = data.quantity;
 
-    const updatedQuantity = {
-      quantity,
-    };
+    if (quantity < min_selling_quantity) {
+      toast.error("You don't match the minimum selling quantity");
+    } else if (quantity > availableQuantity) {
+      toast.error(
+        `No sufficient stock. Available stock is ${availableQuantity}`
+      );
+    } else {
+      const updatedQuantity = { quantity };
 
-    axios
-      .patch(`http://localhost:3000/products/${_id}`, updatedQuantity)
-      .then((res) => {
-        if (res.data.modifiedCount) {
-          toast.success("Order Confirm");
-        }
-        setAvailableQuantity((prev) => prev - quantity);
-        setShowModal(false)
-      })
-      .catch((error) => {
-        console.log(error);
-      });
+      axios
+        .patch(`http://localhost:3000/products/${_id}`, updatedQuantity)
+        .then((res) => {
+          if (res.data.modifiedCount) {
+            toast.success("Order Confirmed");
+
+            const orderInfo = {
+              productId: _id,
+              buyerName: user.displayName,
+              buyerEmail: user.email,
+              quantity,
+              purchaseDate: new Date().toISOString().split("T")[0],
+              productDetails: {
+                name,
+                image,
+                brand,
+                price,
+                category,
+                description,
+                rating,
+              },
+            };
+
+            return axios.post("http://localhost:3000/orders", orderInfo);
+          }
+        })
+        .then(() => {
+          setAvailableQuantity((prev) => prev - quantity);
+          setShowModal(false);
+        })
+        .catch((error) => {
+          console.error(error);
+          toast.error("Something went wrong!");
+        });
+    }
+  };
+
+  const handleIncrease = () => {
+    const newQuantity = quantity + 1;
+    setQuantity(newQuantity);
+    setValue("quantity", newQuantity);
+  };
+
+  const handleDecrease = () => {
+    if (quantity > 0) {
+      const newQuantity = quantity - 1;
+      setQuantity(newQuantity);
+      setValue("quantity", newQuantity);
+    }
   };
 
   return (
@@ -101,7 +145,14 @@ const ProductDetails = () => {
             {description}
           </p>
 
-          <div onClick={() => setShowModal(true)} className="pt-6">
+          <div
+            onClick={() => {
+              setShowModal(true);
+              setQuantity(0);
+              setValue("quantity", "0");
+            }}
+            className="pt-6"
+          >
             <button className="btn btn-primary btn-wide text-lg font-semibold rounded-xl shadow-md transition-all hover:scale-105">
               Buy Now
             </button>
@@ -170,7 +221,11 @@ const ProductDetails = () => {
               <div>
                 <label className="label font-semibold">Quantity</label>
                 <div className="flex items-center gap-3">
-                  <button type="button" className="btn btn-sm btn-outline">
+                  <button
+                    onClick={handleDecrease}
+                    type="button"
+                    className="btn btn-sm btn-outline"
+                  >
                     −
                   </button>
                   <input
@@ -178,6 +233,11 @@ const ProductDetails = () => {
                     {...register("quantity", {
                       required: "Quantity is required",
                     })}
+                    onChange={(e) => {
+                      const value = parseInt(e.target.value) || 0;
+                      setQuantity(value);
+                      setValue("quantity", value);
+                    }}
                     className="input input-bordered w-24 text-center"
                   />
                   {errors.quantity && (
@@ -185,12 +245,16 @@ const ProductDetails = () => {
                       {errors.quantity.message}
                     </p>
                   )}
-                  <button type="button" className="btn btn-sm btn-outline">
+                  <button
+                    onClick={handleIncrease}
+                    type="button"
+                    className="btn btn-sm btn-outline"
+                  >
                     +
                   </button>
                 </div>
                 <p className="text-xs text-gray-500 pt-1">
-                  Min: {min_selling_quantity}, Max: {main_quantity}
+                  Min: {min_selling_quantity}, Max: {availableQuantity}
                 </p>
               </div>
 

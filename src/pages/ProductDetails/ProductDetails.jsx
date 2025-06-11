@@ -34,7 +34,7 @@ const ProductDetails = () => {
   } = useForm();
 
   const onSubmit = (data) => {
-    const quantity = data.quantity;
+    const quantity = parseInt(data.quantity);
 
     if (quantity < min_selling_quantity) {
       toast.error("You don't match the minimum selling quantity");

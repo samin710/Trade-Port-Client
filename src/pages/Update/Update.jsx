@@ -28,6 +28,9 @@ const Update = () => {
   const onSubmit = (data) => {
     const updatedData = {
       ...data,
+      main_quantity: parseInt(data.main_quantity),
+      min_selling_quantity: parseInt(data.min_selling_quantity),
+      rating: parseInt(data.rating),
     };
 
     axios

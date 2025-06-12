@@ -12,6 +12,7 @@ import Categories from "../pages/Categories/Categories";
 import CategoryWiseProducts from "../pages/CategoryWiseProducts/CategoryWiseProducts";
 import Update from "../pages/Update/Update";
 import ProductDetails from "../pages/ProductDetails/ProductDetails";
+import ErrorPage from "../pages/ErrorPage/ErrorPage";
 
 export const router = createBrowserRouter([
   {
@@ -95,5 +96,9 @@ export const router = createBrowserRouter([
   {
     path: "signUp",
     Component: SignUp,
+  },
+  {
+    path: "*",
+    Component: ErrorPage,
   },
 ]);

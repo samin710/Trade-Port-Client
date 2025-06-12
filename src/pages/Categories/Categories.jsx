@@ -9,7 +9,7 @@ const Categories = () => {
         {" "}
         <Link
           to={`/categoryWiseProducts/Electronics and Gadgets`}
-          className="card bg-secondary shadow-xl hover:shadow-2xl rounded-2xl mb-10"
+          className="card shadow-xl hover:shadow-2xl rounded-2xl mb-10"
         >
           <figure>
             <img
@@ -27,7 +27,7 @@ const Categories = () => {
         </Link>
         <Link
           to={`/categoryWiseProducts/Home and Kitchen Appliances`}
-          className="card bg-secondary shadow-xl hover:shadow-2xl rounded-2xl mb-10"
+          className="card shadow-xl hover:shadow-2xl rounded-2xl mb-10"
         >
           <figure>
             <img
@@ -43,7 +43,7 @@ const Categories = () => {
         </Link>
         <Link
           to={`/categoryWiseProducts/Fashion and Apparel`}
-          className="card bg-secondary shadow-xl hover:shadow-2xl rounded-2xl mb-10"
+          className="card shadow-xl hover:shadow-2xl rounded-2xl mb-10"
         >
           <figure>
             <img
@@ -59,7 +59,7 @@ const Categories = () => {
         </Link>
         <Link
           to={`/categoryWiseProducts/Industrial Machinery and Tools`}
-          className="card bg-secondary shadow-xl hover:shadow-2xl rounded-2xl mb-10"
+          className="card shadow-xl hover:shadow-2xl rounded-2xl mb-10"
         >
           <figure>
             <img
@@ -75,7 +75,7 @@ const Categories = () => {
         </Link>
         <Link
           to={`/categoryWiseProducts/Health and Beauty`}
-          className="card bg-secondary shadow-xl hover:shadow-2xl rounded-2xl mb-10"
+          className="card shadow-xl hover:shadow-2xl rounded-2xl mb-10"
         >
           <figure>
             <img
@@ -91,7 +91,7 @@ const Categories = () => {
         </Link>
         <Link
           to={`/categoryWiseProducts/Automotive Parts and Accessories`}
-          className="card bg-secondary shadow-xl hover:shadow-2xl rounded-2xl mb-10"
+          className="card shadow-xl hover:shadow-2xl rounded-2xl mb-10"
         >
           <figure>
             <img
@@ -107,7 +107,7 @@ const Categories = () => {
         </Link>
         <Link
           to={`/categoryWiseProducts/Office Supplies and Stationery`}
-          className="card bg-secondary shadow-xl hover:shadow-2xl rounded-2xl mb-10"
+          className="card shadow-xl hover:shadow-2xl rounded-2xl mb-10"
         >
           <figure>
             <img

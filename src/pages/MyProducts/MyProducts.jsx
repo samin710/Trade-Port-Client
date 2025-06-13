@@ -1,19 +1,20 @@
 import React, { use, useEffect, useState } from "react";
 import ProductCard from "../../components/ProductCard/ProductCard";
 import { AuthContext } from "../../providers/AuthContext";
-import axios from "axios";
 import Loading from "../../components/Loading/Loading";
+import useAxiosSecure from "../../hooks/useAxiosSecure";
 
 const MyProducts = () => {
   const { user } = use(AuthContext);
   const [allProducts, setAllProducts] = useState([]);
   const [loading, setLoading] = useState(true);
+  const axiosSecure = useAxiosSecure();
   useEffect(() => {
-    axios.get("http://localhost:3000/products").then((res) => {
+    axiosSecure.get("/products").then((res) => {
       setAllProducts(res.data);
       setLoading(false);
     });
-  }, []);
+  }, [axiosSecure]);
 
   if (loading) return <Loading></Loading>;
 

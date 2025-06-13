@@ -1,18 +1,22 @@
 import React, { useEffect, useState } from "react";
 import ProductCard from "../../components/ProductCard/ProductCard";
 import ProductTableView from "../../components/ProductTableView/ProductTableView";
-import axios from "axios";
 import Loading from "../../components/Loading/Loading";
+import { AuthContext } from "../../providers/AuthContext";
+import useAxiosSecure from "../../hooks/useAxiosSecure";
 
 const AllProducts = () => {
+  const axiosSecure = useAxiosSecure();
+
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
+
   useEffect(() => {
-    axios.get("http://localhost:3000/products").then((res) => {
+    axiosSecure.get("/products").then((res) => {
       setProducts(res.data);
       setLoading(false);
     });
-  }, []);
+  }, [axiosSecure]);
 
   const [showAvailableOnly, setShowAvailableOnly] = useState(false);
   const [viewMode, setViewMode] = useState("card");

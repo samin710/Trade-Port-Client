@@ -3,16 +3,21 @@ import { AuthContext } from "../../providers/AuthContext";
 import { FaTrashAlt } from "react-icons/fa";
 import axios from "axios";
 import { toast } from "react-toastify";
+import Loading from "../../components/Loading/Loading";
 
 const Cart = () => {
   const { user } = use(AuthContext);
   const [orders, setOrders] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     if (user?.email) {
       axios
         .get(`http://localhost:3000/orders/buyer?email=${user.email}`)
-        .then((res) => setOrders(res.data))
+        .then((res) => {
+          setOrders(res.data);
+          setLoading(false);
+        })
         .catch((err) => console.error(err));
     }
   }, [user]);
@@ -42,6 +47,8 @@ const Cart = () => {
         toast.error("Something went wrong!");
       });
   };
+
+  if (loading) return <Loading></Loading>;
 
   return (
     <div className="p-6">

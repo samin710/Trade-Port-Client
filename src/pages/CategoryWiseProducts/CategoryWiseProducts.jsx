@@ -1,10 +1,23 @@
-import React from "react";
+import axios from "axios";
+import React, { useEffect, useState } from "react";
 import { FaStar } from "react-icons/fa";
-
-import { Link, useLoaderData } from "react-router";
+import { Link, useParams } from "react-router";
+import Loading from "../../components/Loading/Loading";
 
 const CategoryWiseProducts = () => {
-  const products = useLoaderData();
+  const { category } = useParams();
+  const [products, setProducts] = useState([]);
+  const [loading, setLoading] = useState(true);
+  useEffect(() => {
+    axios
+      .get(`http://localhost:3000/products/category/${category}`)
+      .then((res) => {
+        setProducts(res.data);
+        setLoading(false);
+      });
+  }, [category]);
+
+  if (loading) return <Loading></Loading>;
 
   return products.length > 0 ? (
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">

@@ -1,11 +1,22 @@
-import React, { use } from "react";
+import React, { use, useEffect, useState } from "react";
 import ProductCard from "../../components/ProductCard/ProductCard";
 import { AuthContext } from "../../providers/AuthContext";
-import { useLoaderData } from "react-router";
+import axios from "axios";
+import Loading from "../../components/Loading/Loading";
 
 const MyProducts = () => {
   const { user } = use(AuthContext);
-  const allProducts = useLoaderData();
+  const [allProducts, setAllProducts] = useState([]);
+  const [loading, setLoading] = useState(true);
+  useEffect(() => {
+    axios.get("http://localhost:3000/products").then((res) => {
+      setAllProducts(res.data);
+      setLoading(false);
+    });
+  }, []);
+
+  if (loading) return <Loading></Loading>;
+
   const filteredRecipes = allProducts.filter((p) => p.userEmail === user.email);
 
   if (!filteredRecipes.length) {

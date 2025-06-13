@@ -1,10 +1,18 @@
-import React, { useState } from "react";
-import { useLoaderData } from "react-router";
+import React, { useEffect, useState } from "react";
 import ProductCard from "../../components/ProductCard/ProductCard";
 import ProductTableView from "../../components/ProductTableView/ProductTableView";
+import axios from "axios";
+import Loading from "../../components/Loading/Loading";
 
 const AllProducts = () => {
-  const products = useLoaderData();
+  const [products, setProducts] = useState([]);
+  const [loading, setLoading] = useState(true);
+  useEffect(() => {
+    axios.get("http://localhost:3000/products").then((res) => {
+      setProducts(res.data);
+      setLoading(false);
+    });
+  }, []);
 
   const [showAvailableOnly, setShowAvailableOnly] = useState(false);
   const [viewMode, setViewMode] = useState("card");
@@ -13,6 +21,7 @@ const AllProducts = () => {
     ? products.filter((product) => product.min_selling_quantity > 100)
     : products;
 
+  if (loading) return <Loading></Loading>;
   return (
     <div className="px-4 py-6 space-y-4">
       <div className="flex flex-col md:flex-row items-center justify-between gap-4">

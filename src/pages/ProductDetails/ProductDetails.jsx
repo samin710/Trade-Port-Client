@@ -1,12 +1,25 @@
-import React, { use, useState } from "react";
+import React, { use, useEffect, useState } from "react";
 import { FaStar } from "react-icons/fa";
-import { useLoaderData } from "react-router";
+import { useParams } from "react-router";
 import { AuthContext } from "../../providers/AuthContext";
 import { useForm } from "react-hook-form";
 import axios from "axios";
 import { toast } from "react-toastify";
+import Loading from "../../components/Loading/Loading";
 
 const ProductDetails = () => {
+  const { id } = useParams();
+  const [products, setProducts] = useState([]);
+  const [loading, setLoading] = useState(true);
+  useEffect(() => {
+    axios.get(`http://localhost:3000/products/${id}`).then((res) => {
+      setProducts(res.data);
+      setLoading(false);
+    });
+  }, [id]);
+
+  const { user } = use(AuthContext);
+
   const {
     name,
     image,
@@ -18,12 +31,16 @@ const ProductDetails = () => {
     category,
     description,
     _id,
-  } = useLoaderData();
-
-  const { user } = use(AuthContext);
+  } = products;
 
   const [showModal, setShowModal] = useState(false);
-  const [availableQuantity, setAvailableQuantity] = useState(main_quantity);
+  const [availableQuantity, setAvailableQuantity] = useState(0);
+
+  useEffect(() => {
+    if (main_quantity) {
+      setAvailableQuantity(main_quantity);
+    }
+  }, [main_quantity]);
   const [quantity, setQuantity] = useState(0);
 
   const {
@@ -32,6 +49,8 @@ const ProductDetails = () => {
     setValue,
     formState: { errors },
   } = useForm();
+
+  if (loading) return <Loading></Loading>;
 
   const onSubmit = (data) => {
     const quantity = parseInt(data.quantity);

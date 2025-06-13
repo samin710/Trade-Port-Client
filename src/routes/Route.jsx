@@ -29,14 +29,10 @@ export const router = createBrowserRouter([
       },
       {
         path: "categoryWiseProducts/:category",
-        loader: ({ params }) =>
-          fetch(`http://localhost:3000/products/category/${params.category}`),
         Component: CategoryWiseProducts,
       },
       {
         path: "productDetails/:id",
-        loader: ({ params }) =>
-          fetch(`http://localhost:3000/products/${params.id}`),
         element: (
           <PrivateRoute>
             <ProductDetails></ProductDetails>
@@ -45,7 +41,6 @@ export const router = createBrowserRouter([
       },
       {
         path: "allProducts",
-        loader: () => fetch("http://localhost:3000/products"),
         element: (
           <PrivateRoute>
             <AllProducts></AllProducts>
@@ -54,8 +49,6 @@ export const router = createBrowserRouter([
       },
       {
         path: "update/:id",
-        loader: ({ params }) =>
-          fetch(`http://localhost:3000/products/${params.id}`),
         element: (
           <PrivateRoute>
             <Update></Update>
@@ -72,7 +65,6 @@ export const router = createBrowserRouter([
       },
       {
         path: "myProducts",
-        loader: () => fetch("http://localhost:3000/products"),
         element: (
           <PrivateRoute>
             <MyProducts></MyProducts>

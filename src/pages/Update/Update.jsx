@@ -1,33 +1,39 @@
 import axios from "axios";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
-import { useLoaderData, useNavigate } from "react-router";
+import { useNavigate, useParams } from "react-router";
 import { toast } from "react-toastify";
+import Loading from "../../components/Loading/Loading";
 
 const Update = () => {
-  const {
-    _id,
-    name,
-    image,
-    main_quantity,
-    min_selling_quantity,
-    brand,
-    rating,
-    category,
-    description,
-  } = useLoaderData();
-
+  const { id } = useParams();
+  const [products, setProducts] = useState([]);
+  const [loading, setLoading] = useState(true);
   const navigate = useNavigate();
 
   const {
     register,
     handleSubmit,
+    reset,
     formState: { errors },
   } = useForm();
 
+  useEffect(() => {
+    axios.get(`http://localhost:3000/products/${id}`).then((res) => {
+      setProducts(res.data);
+      setLoading(false);
+      reset(res.data);
+    });
+  }, [id, reset]);
+
+  if (loading) return <Loading></Loading>;
+
+  const { _id } = products;
+
   const onSubmit = (data) => {
+    const { _id, ...cleanedData } = data;
     const updatedData = {
-      ...data,
+      ...cleanedData,
       main_quantity: parseInt(data.main_quantity),
       min_selling_quantity: parseInt(data.min_selling_quantity),
       rating: parseInt(data.rating),
@@ -57,8 +63,7 @@ const Update = () => {
             <label className="label font-semibold">Product Image</label>
             <input
               type="url"
-              defaultValue={image}
-              {...register("image", { required: "Image URL is required" })}
+              {...register("image")}
               className="input w-full focus:outline-none focus:border-primary"
             />
             {errors.image && (
@@ -70,8 +75,7 @@ const Update = () => {
             <label className="label font-semibold">Product Name</label>
             <input
               type="text"
-              defaultValue={name}
-              {...register("name", { required: "Product name is required" })}
+              {...register("name")}
               className="input w-full focus:outline-none focus:border-primary"
             />
             {errors.name && (
@@ -84,10 +88,7 @@ const Update = () => {
               <label className="label font-semibold">Main Quantity</label>
               <input
                 type="number"
-                defaultValue={main_quantity}
-                {...register("main_quantity", {
-                  required: "Main quantity is required",
-                })}
+                {...register("main_quantity")}
                 className="input focus:outline-none focus:border-primary"
               />
               {errors.main_quantity && (
@@ -103,10 +104,7 @@ const Update = () => {
               </label>
               <input
                 type="number"
-                defaultValue={min_selling_quantity}
-                {...register("min_selling_quantity", {
-                  required: "Minimum quantity is required",
-                })}
+                {...register("min_selling_quantity")}
                 className="input focus:outline-none focus:border-primary"
               />
               {errors.min_selling_quantity && (
@@ -120,8 +118,7 @@ const Update = () => {
               <label className="label font-semibold">Brand Name</label>
               <input
                 type="text"
-                defaultValue={brand}
-                {...register("brand", { required: "Brand name is required" })}
+                {...register("brand")}
                 className="input focus:outline-none focus:border-primary"
               />
               {errors.brand && (
@@ -136,12 +133,7 @@ const Update = () => {
                 type="number"
                 min="1"
                 max="5"
-                defaultValue={rating}
-                {...register("rating", {
-                  required: "Rating is required",
-                  min: { value: 1, message: "Minimum rating is 1" },
-                  max: { value: 5, message: "Maximum rating is 5" },
-                })}
+                {...register("rating")}
                 className="input focus:outline-none focus:border-primary"
               />
               {errors.rating && (
@@ -153,9 +145,8 @@ const Update = () => {
               <label className="label font-semibold">Category</label>
               <br />
               <select
-                {...register("category", { required: "Category is required" })}
+                {...register("category")}
                 className="select select-bordered focus:outline-none focus:border-primary"
-                defaultValue={category}
               >
                 <option value="" disabled>
                   Select a Category
@@ -179,10 +170,7 @@ const Update = () => {
           <div className="form-control">
             <label className="label font-semibold">Short Description</label>
             <textarea
-              defaultValue={description}
-              {...register("description", {
-                required: "Description is required",
-              })}
+              {...register("description")}
               className="textarea focus:outline-none focus:border-primary w-full"
               rows="5"
             ></textarea>

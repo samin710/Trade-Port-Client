@@ -4,12 +4,14 @@ import { useForm } from "react-hook-form";
 import { useNavigate, useParams } from "react-router";
 import { toast } from "react-toastify";
 import Loading from "../../components/Loading/Loading";
+import useAxiosSecure from "../../hooks/useAxiosSecure";
 
 const Update = () => {
   const { id } = useParams();
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
   const navigate = useNavigate();
+  const axiosSecure = useAxiosSecure();
 
   const {
     register,
@@ -19,12 +21,12 @@ const Update = () => {
   } = useForm();
 
   useEffect(() => {
-    axios.get(`http://localhost:3000/products/${id}`).then((res) => {
+    axiosSecure.get(`http://localhost:3000/products/${id}`).then((res) => {
       setProducts(res.data);
       setLoading(false);
       reset(res.data);
     });
-  }, [id, reset]);
+  }, [id, reset, axiosSecure]);
 
   if (loading) return <Loading></Loading>;
 

@@ -4,15 +4,18 @@ import { FaTrashAlt } from "react-icons/fa";
 import axios from "axios";
 import { toast } from "react-toastify";
 import Loading from "../../components/Loading/Loading";
+import useAxiosSecure from "../../hooks/useAxiosSecure";
 
 const Cart = () => {
   const { user } = use(AuthContext);
   const [orders, setOrders] = useState([]);
   const [loading, setLoading] = useState(true);
 
+  const axiosSecure = useAxiosSecure();
+
   useEffect(() => {
     if (user?.email) {
-      axios
+      axiosSecure
         .get(`http://localhost:3000/orders/buyer?email=${user.email}`)
         .then((res) => {
           setOrders(res.data);
@@ -20,10 +23,10 @@ const Cart = () => {
         })
         .catch((err) => console.error(err));
     }
-  }, [user]);
+  }, [user, axiosSecure]);
 
   const handleRemove = (id, productId, quantity) => {
-    axios
+    axiosSecure
       .delete(`http://localhost:3000/orders/${id}`)
       .then((res) => {
         if (res.data.deletedCount) {

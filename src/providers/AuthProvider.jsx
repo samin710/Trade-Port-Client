@@ -27,6 +27,7 @@ const AuthProvider = ({ children }) => {
 
   const provider = new GoogleAuthProvider();
   const googleSignIn = () => {
+    setLoading(true);
     return signInWithPopup(auth, provider);
   };
 
@@ -34,7 +35,6 @@ const AuthProvider = ({ children }) => {
     const unSubscribe = onAuthStateChanged(auth, (currentUser) => {
       setUser(currentUser);
       setLoading(false);
-      console.log(currentUser);
     });
     return () => {
       unSubscribe();
@@ -42,10 +42,12 @@ const AuthProvider = ({ children }) => {
   }, []);
 
   const update = (updateData) => {
+    setLoading(true)
     return updateProfile(auth.currentUser, updateData);
   };
 
   const logout = () => {
+    setLoading(true)
     return signOut(auth);
   };
 

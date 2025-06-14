@@ -6,17 +6,19 @@ import { useForm } from "react-hook-form";
 import axios from "axios";
 import { toast } from "react-toastify";
 import Loading from "../../components/Loading/Loading";
+import useAxiosSecure from "../../hooks/useAxiosSecure";
 
 const ProductDetails = () => {
   const { id } = useParams();
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
+  const axiosSecure = useAxiosSecure();
   useEffect(() => {
-    axios.get(`http://localhost:3000/products/${id}`).then((res) => {
+    axiosSecure.get(`http://localhost:3000/products/${id}`).then((res) => {
       setProducts(res.data);
       setLoading(false);
     });
-  }, [id]);
+  }, [axiosSecure, id]);
 
   const { user } = use(AuthContext);
 

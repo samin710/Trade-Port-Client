@@ -1,13 +1,14 @@
 import React, { use } from "react";
 import { useForm } from "react-hook-form";
 import { AuthContext } from "../../providers/AuthContext";
-import axios from "axios";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router";
+import useAxiosSecure from "../../hooks/useAxiosSecure";
 
 const AddProduct = () => {
   const { user } = use(AuthContext);
   const navigate = useNavigate();
+  const axiosSecure = useAxiosSecure();
 
   const {
     register,
@@ -25,7 +26,7 @@ const AddProduct = () => {
       rating: parseInt(data.rating),
     };
 
-    axios
+    axiosSecure
       .post("http://localhost:3000/products", formData)
       .then(() => {
         toast.success("Successfully Added Product");

@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import ProductCard from "../../components/ProductCard/ProductCard";
 import ProductTableView from "../../components/ProductTableView/ProductTableView";
 import Loading from "../../components/Loading/Loading";
-import { AuthContext } from "../../providers/AuthContext";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
 
 const AllProducts = () => {
@@ -26,6 +25,13 @@ const AllProducts = () => {
     : products;
 
   if (loading) return <Loading></Loading>;
+  if (products.length < 1) {
+    return (
+      <h1 className="text-center text-2xl md:text-4xl">
+        Currently no products are available😔😔😔
+      </h1>
+    );
+  }
   return (
     <div className="px-4 py-6 space-y-4">
       <div className="flex flex-col md:flex-row items-center justify-between gap-4">
@@ -52,7 +58,7 @@ const AllProducts = () => {
       {viewMode === "card" ? (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {filteredProducts.map((product) => (
-            <ProductCard key={product._id} product={product} />
+            <ProductCard key={product._id} product={product}></ProductCard>
           ))}
         </div>
       ) : (
@@ -69,7 +75,10 @@ const AllProducts = () => {
             </thead>
             <tbody>
               {filteredProducts.map((product) => (
-                <ProductTableView key={product._id} product={product} />
+                <ProductTableView
+                  key={product._id}
+                  product={product}
+                ></ProductTableView>
               ))}
             </tbody>
           </table>

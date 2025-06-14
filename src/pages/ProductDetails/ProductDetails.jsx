@@ -14,7 +14,7 @@ const ProductDetails = () => {
   const [loading, setLoading] = useState(true);
   const axiosSecure = useAxiosSecure();
   useEffect(() => {
-    axiosSecure.get(`http://localhost:3000/products/${id}`).then((res) => {
+    axiosSecure.get(`/products/${id}`).then((res) => {
       setProducts(res.data);
       setLoading(false);
     });

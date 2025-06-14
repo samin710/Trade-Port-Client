@@ -5,6 +5,7 @@ import "swiper/css/effect-coverflow";
 import "swiper/css/pagination";
 import "./styles.css";
 import { EffectCoverflow, Pagination, Autoplay } from "swiper/modules";
+import GradientText from "../../animations/GradientText/GradientText";
 
 const Slider = () => {
   const swiperRef = useRef(null);
@@ -29,9 +30,25 @@ const Slider = () => {
   return (
     <>
       <h1 className="text-center mt-7 md:mt-14 text-2xl md:text-4xl font-bold">
-        Deals You Can’t Miss
+        <GradientText
+          colors={[
+            "#40ffaa",
+            "#4079ff",
+            "#40ffaa",
+            "#4079ff",
+            "#40ffaa",
+            "#0077B6",
+          ]}
+          animationSpeed={5}
+          showBorder={false}
+          className="custom-class"
+        >
+          Deals You Can’t Miss
+        </GradientText>
       </h1>
-      <p className="text-center">Swipe through the hottest offers of the season.</p>
+      <p className="text-center text-accent text-sm">
+        Swipe through the hottest offers of the season.
+      </p>
       <div className="w-full max-w-7xl mx-auto ">
         <Swiper
           onSwiper={(swiper) => {

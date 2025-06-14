@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { useInView } from "react-intersection-observer";
+// import { useInView } from "react-intersection-observer";
 import Slider from "../../components/Slider/Slider";
 import Categories from "../Categories/Categories";
 import Testimonials from "../../components/Testimonials/Testimonials";
@@ -11,20 +11,20 @@ const Home = () => {
     document.title = "TradePort | Home";
   }, []);
 
-  const { ref: categoryRef, inView } = useInView({
-    triggerOnce: false,
-    // threshold: 0.01,
-  });
+  // const { ref: categoryRef, inView } = useInView({
+  //   triggerOnce: false,
+  //   // threshold: 0.01,
+  // });
 
   return (
     <div>
       <Slider />
 
       <div
-        ref={categoryRef}
-        className={`transition-all duration-700 ${
-          inView ? "animate__animated animate__lightSpeedInRight" : ""
-        }`}
+      // ref={categoryRef}
+      // className={`transition-all duration-700 ${
+      //   inView ? "animate__animated animate__lightSpeedInRight" : ""
+      // }`}
       >
         <Categories></Categories>
       </div>

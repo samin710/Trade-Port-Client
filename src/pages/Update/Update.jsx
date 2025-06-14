@@ -1,4 +1,3 @@
-import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { useNavigate, useParams } from "react-router";
@@ -21,7 +20,7 @@ const Update = () => {
   } = useForm();
 
   useEffect(() => {
-    axiosSecure.get(`http://localhost:3000/products/${id}`).then((res) => {
+    axiosSecure.get(`/products/${id}`).then((res) => {
       setProducts(res.data);
       setLoading(false);
       reset(res.data);
@@ -41,8 +40,8 @@ const Update = () => {
       rating: parseInt(data.rating),
     };
 
-    axios
-      .put(`http://localhost:3000/products/${_id}`, updatedData)
+    axiosSecure
+      .put(`/products/${_id}`, updatedData)
       .then((res) => {
         if (res.data.modifiedCount) {
           toast.success("Update Successful");

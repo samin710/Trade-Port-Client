@@ -4,6 +4,9 @@ import { AuthContext } from "../../providers/AuthContext";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
+import addNew from "../../assets/lottie/addNew.json";
+import Lottie from "lottie-react";
+import BlurText from "../../animations/BlurText";
 
 const AddProduct = () => {
   const { user } = use(AuthContext);
@@ -27,7 +30,7 @@ const AddProduct = () => {
     };
 
     axiosSecure
-      .post("http://localhost:3000/products", formData)
+      .post("/products", formData)
       .then(() => {
         toast.success("Successfully Added Product");
         navigate("/allProducts");
@@ -38,10 +41,23 @@ const AddProduct = () => {
   };
 
   return (
-    <div className="max-w-4xl mx-auto p-6 rounded-2xl shadow-xl bg-base-100 mt-10">
-      <h2 className="text-3xl font-bold text-center mb-6 text-primary">
-        Add a New Product
-      </h2>
+    <div className="max-w-4xl mx-auto p-6 rounded-2xl shadow-xl mt-6 md:mt-10 border border-secondary">
+      <div className="flex justify-center items-center">
+        <h2 className="text-2xl md:text-4xl font-bold text-primary">
+          <BlurText
+            text="Add a New Product"
+            delay={150}
+            animateBy="words"
+            direction="top"
+            className="text-2xl mb-8"
+            loop
+            repeatDelay={2.5}
+          ></BlurText>
+        </h2>
+        <div className="w-12 md:w-16">
+          <Lottie animationData={addNew} loop></Lottie>
+        </div>
+      </div>
       <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
         <div className="form-control">
           <label className="label font-semibold">Product Image</label>
@@ -196,9 +212,9 @@ const AddProduct = () => {
           Add Product
         </button>
 
-        <div className="mt-10 p-4 bg-base-200 rounded-lg border">
+        <div className="md:mt-10 mt-5 p-4 bg-secondary rounded-lg">
           <h3 className="text-lg font-semibold mb-2">Product Content</h3>
-          <p className="text-sm text-gray-600">
+          <p className="text-accent">
             Make sure all product details are accurate and up-to-date. This
             helps buyers make confident purchasing decisions and enhances the
             visibility of your product on the platform.

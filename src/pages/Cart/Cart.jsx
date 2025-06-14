@@ -16,7 +16,7 @@ const Cart = () => {
   useEffect(() => {
     if (user?.email) {
       axiosSecure
-        .get(`http://localhost:3000/orders/buyer?email=${user.email}`)
+        .get(`/orders/buyer?email=${user.email}`)
         .then((res) => {
           setOrders(res.data);
           setLoading(false);
@@ -27,14 +27,14 @@ const Cart = () => {
 
   const handleRemove = (id, productId, quantity) => {
     axiosSecure
-      .delete(`http://localhost:3000/orders/${id}`)
+      .delete(`/orders/${id}`)
       .then((res) => {
         if (res.data.deletedCount) {
           const conQuantity = parseInt(quantity);
           toast.success("Removed from cart!");
           setOrders((prev) => prev.filter((order) => order._id !== id));
 
-          return axios.patch(`http://localhost:3000/products/${productId}`, {
+          return axios.patch(`/products/${productId}`, {
             quantity: conQuantity,
             restore: true,
           });

@@ -1,38 +1,47 @@
 import axios from "axios";
-import React, { use } from "react";
+import React, { use, useEffect } from "react";
 import { AuthContext } from "../providers/AuthContext";
-import { toast } from "react-toastify";
 
 const axiosInstance = axios.create({
   baseURL: "http://localhost:3000",
 });
 
 const useAxiosSecure = () => {
-  const { user, logout } = use(AuthContext);
+  const { user, logout, loading } = use(AuthContext);
 
-  axiosInstance.interceptors.request.use((config) => {
-    config.headers.authorization = `Bearer ${user.accessToken}`;
-    config.headers.email = user.email;
-    return config;
-  });
+  useEffect(() => {
+    if (!loading && user?.accessToken) {
+      // Add request interceptor
+      const requestInterceptor = axiosInstance.interceptors.request.use(
+        (config) => {
+          config.headers.authorization = `Bearer ${user.accessToken}`;
+          config.headers.email = user.email;
+          return config;
+        }
+      );
 
-  axiosInstance.interceptors.response.use(
-    (response) => {
-      return response;
-    },
-    (error) => {
-      if (error.status === 401 || error.status === 403) {
-        logout()
-          .then(() => {
-            toast.success("SignOut user for 401 status code");
-          })
-          .catch((error) => {
-            console.log(error.massage);
-          });
-      }
-      return Promise.reject(error);
+      // Add response interceptor
+      const responseInterceptor = axiosInstance.interceptors.response.use(
+        (res) => res,
+        (err) => {
+          if (err?.response?.status === 401 || err?.response?.status === 403) {
+            logout()
+              .then(() => {
+                console.log("Logged out due to token issue.");
+              })
+              .catch(console.error);
+          }
+          return Promise.reject(err);
+        }
+      );
+
+      // Cleanup to prevent multiple interceptors on re-renders
+      return () => {
+        axiosInstance.interceptors.request.eject(requestInterceptor);
+        axiosInstance.interceptors.response.eject(responseInterceptor);
+      };
     }
-  );
+  }, [user, loading, logout]);
 
   return axiosInstance;
 };

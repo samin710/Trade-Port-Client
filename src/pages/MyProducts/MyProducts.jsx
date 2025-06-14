@@ -1,8 +1,8 @@
 import React, { use, useEffect, useState } from "react";
-import ProductCard from "../../components/ProductCard/ProductCard";
 import { AuthContext } from "../../providers/AuthContext";
 import Loading from "../../components/Loading/Loading";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
+import MyProductCard from "../../components/MyProductCard/MyProductCard";
 
 const MyProducts = () => {
   const { user } = use(AuthContext);
@@ -30,7 +30,7 @@ const MyProducts = () => {
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
       {filteredRecipes.map((product) => (
-        <ProductCard key={product._id} product={product}></ProductCard>
+        <MyProductCard key={product._id} product={product}></MyProductCard>
       ))}
     </div>
   );

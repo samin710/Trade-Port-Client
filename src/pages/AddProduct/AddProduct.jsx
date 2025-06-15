@@ -1,4 +1,4 @@
-import React, { use } from "react";
+import React, { use, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { AuthContext } from "../../providers/AuthContext";
 import { toast } from "react-toastify";
@@ -9,6 +9,10 @@ import Lottie from "lottie-react";
 import BlurText from "../../animations/BlurText";
 
 const AddProduct = () => {
+  useEffect(() => {
+    document.title = "TradePort | AddProduct";
+  }, []);
+
   const { user } = use(AuthContext);
   const navigate = useNavigate();
   const axiosSecure = useAxiosSecure();

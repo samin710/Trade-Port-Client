@@ -58,7 +58,9 @@ const ProductDetails = () => {
     const quantity = parseInt(data.quantity);
 
     if (quantity < min_selling_quantity) {
-      toast.error("You don't match the minimum selling quantity");
+      toast.error(
+        `You don't match the minimum selling quantity (${min_selling_quantity})`
+      );
     } else if (quantity > availableQuantity) {
       toast.error(
         `No sufficient stock. Available stock is ${availableQuantity}`

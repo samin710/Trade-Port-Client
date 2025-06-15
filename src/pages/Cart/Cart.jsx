@@ -14,6 +14,7 @@ const Cart = () => {
   const axiosSecure = useAxiosSecure();
 
   useEffect(() => {
+    document.title = "TradePort | MyCart";
     if (user?.email) {
       axiosSecure
         .get(`/orders/buyer?email=${user.email}`)
@@ -34,7 +35,7 @@ const Cart = () => {
           toast.success("Removed from cart!");
           setOrders((prev) => prev.filter((order) => order._id !== id));
 
-          return axios.patch(`/products/${productId}`, {
+          return axios.patch(`http://localhost:3000/products/${productId}`, {
             quantity: conQuantity,
             restore: true,
           });

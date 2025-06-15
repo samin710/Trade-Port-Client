@@ -10,6 +10,7 @@ const MyProducts = () => {
   const [loading, setLoading] = useState(true);
   const axiosSecure = useAxiosSecure();
   useEffect(() => {
+    document.title = "TradePort | MyProducts";
     axiosSecure.get("/products").then((res) => {
       setAllProducts(res.data);
       setLoading(false);

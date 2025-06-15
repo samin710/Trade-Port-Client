@@ -1,7 +1,10 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router";
 
 const Categories = () => {
+    useEffect(() => {
+      document.title = "TradePort | Categories";
+    }, []);
   return (
     <>
       <h1 className="text-center py-10 text-2xl md:text-4xl">All Categories</h1>

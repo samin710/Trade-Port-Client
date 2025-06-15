@@ -20,6 +20,7 @@ const Update = () => {
   } = useForm();
 
   useEffect(() => {
+    document.title = "TradePort | Update";
     axiosSecure.get(`/products/${id}`).then((res) => {
       setProducts(res.data);
       setLoading(false);

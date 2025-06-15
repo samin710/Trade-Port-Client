@@ -3,7 +3,8 @@ import { FaStar, FaEdit } from "react-icons/fa";
 import { Link } from "react-router";
 
 const ProductCard = ({ product }) => {
-  const { image, name, category, price, rating, brand, _id } = product;
+  const { image, name, category, price, rating, brand, _id, main_quantity } =
+    product;
 
   return (
     <>
@@ -17,6 +18,9 @@ const ProductCard = ({ product }) => {
             <p>{brand}</p>
             <p>
               <strong>Category:</strong> {category}
+            </p>
+            <p>
+              <strong>Available Quantity:</strong> {main_quantity} units
             </p>
             <p>
               <strong>Price:</strong> {price} BDT

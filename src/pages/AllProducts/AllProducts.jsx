@@ -11,6 +11,7 @@ const AllProducts = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
+    document.title = "TradePort | AllProducts";
     axiosSecure.get("/products").then((res) => {
       setProducts(res.data);
       setLoading(false);
@@ -65,12 +66,12 @@ const AllProducts = () => {
         <div className="overflow-x-auto">
           <table className="table w-full border rounded-lg">
             <thead className="bg-base-200">
-              <tr>
+              <tr className="border border-black">
                 <th>Image</th>
                 <th>Name</th>
                 <th>Brand</th>
                 <th>Category</th>
-                <th>Min. Quantity</th>
+                <th>Available Quantity</th>
               </tr>
             </thead>
             <tbody>

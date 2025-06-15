@@ -11,7 +11,7 @@ const SignUp = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    document.title = "TradePort | signUp";
+    document.title = "TradePort | SignUp";
   }, []);
 
   const handleSignUp = (e) => {

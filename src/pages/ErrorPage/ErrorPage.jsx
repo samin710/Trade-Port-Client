@@ -1,10 +1,13 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router";
 import { FaArrowLeft } from "react-icons/fa";
 import Lottie from "lottie-react";
 import error1 from "../../assets/lottie/error1.json";
 
 const ErrorPage = () => {
+  useEffect(() => {
+    document.title = "TradePort | ErrorPage";
+  }, []);
   return (
     <div className="min-h-screen flex items-center justify-center px-4 bg-gradient-to-r from-secondary to-white">
       <div className="text-center space-y-8 flex flex-col items-center">

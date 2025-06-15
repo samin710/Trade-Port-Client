@@ -69,7 +69,10 @@ const ProductDetails = () => {
       const updatedQuantity = { quantity, restore: false };
 
       axios
-        .patch(`http://localhost:3000/products/${_id}`, updatedQuantity)
+        .patch(
+          `https://b2b-wholesale-platform-server.vercel.app/products/${_id}`,
+          updatedQuantity
+        )
         .then((res) => {
           if (res.data.modifiedCount) {
             toast.success("Order Confirmed");
@@ -91,7 +94,10 @@ const ProductDetails = () => {
                 min_selling_quantity,
               },
             };
-            return axios.post("http://localhost:3000/orders", orderInfo);
+            return axios.post(
+              "https://b2b-wholesale-platform-server.vercel.app/orders",
+              orderInfo
+            );
           }
         })
         .then(() => {

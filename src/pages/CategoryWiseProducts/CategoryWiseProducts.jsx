@@ -10,7 +10,9 @@ const CategoryWiseProducts = () => {
   const [loading, setLoading] = useState(true);
   useEffect(() => {
     axios
-      .get(`http://localhost:3000/products/category/${category}`)
+      .get(
+        `https://b2b-wholesale-platform-server.vercel.app/products/category/${category}`
+      )
       .then((res) => {
         setProducts(res.data);
         setLoading(false);

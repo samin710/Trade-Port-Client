@@ -35,10 +35,13 @@ const Cart = () => {
           toast.success("Removed from cart!");
           setOrders((prev) => prev.filter((order) => order._id !== id));
 
-          return axios.patch(`http://localhost:3000/products/${productId}`, {
-            quantity: conQuantity,
-            restore: true,
-          });
+          return axios.patch(
+            `https://b2b-wholesale-platform-server.vercel.app/products/${productId}`,
+            {
+              quantity: conQuantity,
+              restore: true,
+            }
+          );
         }
       })
       .then((res) => {

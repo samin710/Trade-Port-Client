@@ -229,7 +229,7 @@ const AddProduct = () => {
             Add Product
           </button>
 
-          <div className="md:mt-10 mt-5 p-4 bg-secondary rounded-lg">
+          <div className="md:mt-10 mt-5 p-4 rounded-lg bg-secondary">
             <h3 className="text-lg font-semibold mb-2">Product Content</h3>
             <p className="text-accent">
               Make sure all product details are accurate and up-to-date. This

@@ -116,7 +116,7 @@ const SignUp = () => {
       transition={{ duration: 0.3 }}
       className=""
     >
-      <div className="border md:py-10">
+      <div className="md:py-10">
         {" "}
         <div className="flex justify-center items-center min-h-screen">
           <div
@@ -139,7 +139,7 @@ const SignUp = () => {
                   showBorder={false}
                   className="custom-class md:text-4xl text-2xl"
                 >
-                  SignIn
+                  SignUp
                 </GradientText>
                 <div className="w-12 md:w-16 ">
                   <Lottie animationData={signUpLottie} loop></Lottie>

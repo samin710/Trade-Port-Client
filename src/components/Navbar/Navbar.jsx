@@ -5,6 +5,7 @@ import { toast } from "react-toastify";
 import logoImg from "../../assets/logo.png";
 import { Tooltip } from "react-tooltip";
 import Loading from "../Loading/Loading";
+import ThemeToggle from "../DarkModeToggle/ThemeToggle";
 
 const Navbar = () => {
   const { user, logout, loading } = use(AuthContext);
@@ -102,7 +103,7 @@ const Navbar = () => {
                 className={({ isActive }) =>
                   isActive
                     ? " text-primary font-medium border-b-4 border-b-primary "
-                    : " font-medium "
+                    : " font-medium"
                 }
               >
                 Home
@@ -169,6 +170,9 @@ const Navbar = () => {
               </NavLink>
             </li>
           </ul>
+        </div>
+        <div>
+          <ThemeToggle></ThemeToggle>
         </div>
         <div className="navbar-end hidden md:flex">
           {user ? (

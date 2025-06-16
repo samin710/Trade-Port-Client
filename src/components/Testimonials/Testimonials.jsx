@@ -81,7 +81,7 @@ const Testimonials = () => {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: index * 0.2 }}
             viewport={{ once: false }}
-            className=" shadow-xl shadow-secondary rounded-2xl p-6 border border-secondary border-base-200"
+            className=" shadow-xl shadow-secondary rounded-2xl p-6 border border-secondary"
           >
             <div className="flex items-center space-x-4 mb-4">
               <img

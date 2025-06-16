@@ -13,3 +13,10 @@
     --color-secondary: #CAF0F8;
     --color-accent: #6f6f6f;
   }
+  @plugin "daisyui/theme" {
+    name: "dark";
+    default: true;
+    --color-primary: #0077B6;
+    --color-secondary: #CAF0F8;
+    --color-accent: #dce6f5;
+  }

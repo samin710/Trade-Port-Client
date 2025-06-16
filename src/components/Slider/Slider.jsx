@@ -29,7 +29,7 @@ const Slider = () => {
 
   return (
     <>
-      <h1 className="text-center mt-7 md:mt-14 text-2xl md:text-4xl font-bold">
+      <h1 className="text-center pt-10 text-2xl md:text-4xl font-bold">
         <GradientText
           colors={[
             "#40ffaa",

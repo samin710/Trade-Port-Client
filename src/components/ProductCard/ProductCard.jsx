@@ -8,7 +8,7 @@ const ProductCard = ({ product }) => {
 
   return (
     <>
-      <div className="py-10 ">
+      <div className="md:pt-5 pt-2">
         <div className="card shadow-xl shadow-secondary rounded-2xl">
           <figure>
             <img src={image} alt={name} className=" w-full object-cover" />

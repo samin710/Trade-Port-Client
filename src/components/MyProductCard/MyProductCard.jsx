@@ -30,7 +30,7 @@ const MyProductCard = ({ product }) => {
 
   return (
     <>
-      <div className="py-10 ">
+      <div className="pb-10 ">
         <div className="card shadow-xl shadow-secondary">
           <figure>
             <img src={image} alt={name} className=" w-full object-cover" />

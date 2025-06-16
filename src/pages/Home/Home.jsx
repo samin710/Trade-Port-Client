@@ -4,6 +4,7 @@ import Categories from "../Categories/Categories";
 import Testimonials from "../../components/Testimonials/Testimonials";
 import "animate.css";
 import WhyChooseUs from "../../components/WhyChooseUs/WhyChooseUs";
+import { motion } from "framer-motion";
 
 const Home = () => {
   useEffect(() => {
@@ -11,12 +12,18 @@ const Home = () => {
   }, []);
 
   return (
-    <div>
-      <Slider></Slider>
-      <Categories></Categories>
-      <WhyChooseUs></WhyChooseUs>
-      <Testimonials></Testimonials>
-    </div>
+    <motion.div
+      initial={{ opacity: 0, scale: 0.95 }}
+      animate={{ opacity: 1, scale: 1 }}
+      transition={{ duration: 0.4 }}
+    >
+      <div>
+        <Slider></Slider>
+        <Categories></Categories>
+        <WhyChooseUs></WhyChooseUs>
+        <Testimonials></Testimonials>
+      </div>
+    </motion.div>
   );
 };
 

@@ -8,6 +8,8 @@ import { toast } from "react-toastify";
 import Loading from "../../components/Loading/Loading";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
 import GradientText from "../../animations/GradientText/GradientText";
+import { AnimatePresence, motion } from "framer-motion";
+import { div } from "framer-motion/client";
 
 const ProductDetails = () => {
   const { id } = useParams();
@@ -76,8 +78,6 @@ const ProductDetails = () => {
         )
         .then((res) => {
           if (res.data.modifiedCount) {
-            toast.success("Order Confirmed");
-
             const orderInfo = {
               productId: _id,
               buyerName: user.displayName,
@@ -103,6 +103,7 @@ const ProductDetails = () => {
         })
         .then(() => {
           setAvailableQuantity((prev) => prev - quantity);
+          toast.success("Order Confirmed");
           setShowModal(false);
         })
         .catch((error) => {
@@ -127,203 +128,224 @@ const ProductDetails = () => {
   };
 
   return (
-    <div className="max-w-5xl mx-auto mt-10 p-6 rounded-2xl shadow-2xl shadow-secondary">
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
-        <div className="flex items-center">
-          <img
-            src={image}
-            alt={name}
-            className="rounded-2xl shadow-lg w-full object-cover"
-          />
-        </div>
+    <motion.div
+      initial={{ opacity: 0, scale: 0.95 }}
+      animate={{ opacity: 1, scale: 1 }}
+      transition={{ duration: 0.3 }}
+    >
+      <div className="max-w-5xl mx-auto mt-10 p-6 rounded-2xl shadow-2xl shadow-secondary">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+          <div className="flex items-center">
+            <img
+              src={image}
+              alt={name}
+              className="rounded-2xl shadow-lg w-full object-cover"
+            />
+          </div>
 
-        <div className="space-y-4 text-left">
-          <h1 className="md:text-4xl text-2xl">
-            <GradientText
-              colors={[
-                "#40ffaa",
-                "#4079ff",
-                "#40ffaa",
-                "#4079ff",
-                "#40ffaa",
-                "#0077B6",
-              ]}
-              animationSpeed={5}
-              showBorder={false}
-              className="custom-class"
+          <div className="space-y-4 text-left">
+            <h1 className="md:text-4xl text-2xl">
+              <GradientText
+                colors={[
+                  "#40ffaa",
+                  "#4079ff",
+                  "#40ffaa",
+                  "#4079ff",
+                  "#40ffaa",
+                  "#0077B6",
+                ]}
+                animationSpeed={5}
+                showBorder={false}
+                className="custom-class"
+              >
+                {name}
+              </GradientText>
+            </h1>
+
+            <div className="badge badge-secondary text-accent py-3 px-4">
+              {category}
+            </div>
+
+            <p className="text-accent text-lg">
+              <strong className="text-primary">Brand:</strong> {brand}
+            </p>
+
+            <p className="text-accent text-lg">
+              <strong className="text-primary">Price:</strong> {price} BDT
+            </p>
+
+            <p className="text-accent text-lg">
+              <strong className="text-primary">Available Quantity:</strong>{" "}
+              {availableQuantity}
+            </p>
+
+            <p className="text-accent text-lg">
+              <strong className="text-primary">Minimum Order:</strong>{" "}
+              {min_selling_quantity}
+            </p>
+
+            <div className="flex items-center text-yellow-500 gap-1">
+              <strong className="text-primary">Rating:</strong>
+              {[...Array(Math.round(rating))].map((_, idx) => (
+                <FaStar key={idx} />
+              ))}
+              <span className="ml-1 text-sm text-gray-500">({rating})</span>
+            </div>
+
+            <p className="text-accent pt-3">
+              <strong className="text-primary block mb-1">Description:</strong>
+              {description}
+            </p>
+
+            <div
+              onClick={() => {
+                setShowModal(true);
+                setQuantity(0);
+                setValue("quantity", "0");
+              }}
+              className="pt-6"
             >
-              {name}
-            </GradientText>
-          </h1>
-
-          <div className="badge badge-secondary text-accent py-3 px-4">
-            {category}
-          </div>
-
-          <p className="text-accent text-lg">
-            <strong className="text-primary">Brand:</strong> {brand}
-          </p>
-
-          <p className="text-accent text-lg">
-            <strong className="text-primary">Price:</strong> {price} BDT
-          </p>
-
-          <p className="text-accent text-lg">
-            <strong className="text-primary">Available Quantity:</strong>{" "}
-            {availableQuantity}
-          </p>
-
-          <p className="text-accent text-lg">
-            <strong className="text-primary">Minimum Order:</strong>{" "}
-            {min_selling_quantity}
-          </p>
-
-          <div className="flex items-center text-yellow-500 gap-1">
-            <strong className="text-primary">Rating:</strong>
-            {[...Array(Math.round(rating))].map((_, idx) => (
-              <FaStar key={idx} />
-            ))}
-            <span className="ml-1 text-sm text-gray-500">({rating})</span>
-          </div>
-
-          <p className="text-accent pt-3">
-            <strong className="text-primary block mb-1">Description:</strong>
-            {description}
-          </p>
-
-          <div
-            onClick={() => {
-              setShowModal(true);
-              setQuantity(0);
-              setValue("quantity", "0");
-            }}
-            className="pt-6"
-          >
-            <button className="btn btn-primary btn-wide text-lg font-semibold rounded-xl shadow-md transition-all hover:scale-105">
-              Buy Now
-            </button>
+              <button className="btn btn-primary btn-wide text-lg font-semibold rounded-xl shadow-md transition-all hover:scale-105">
+                Buy Now
+              </button>
+            </div>
           </div>
         </div>
-      </div>
 
-      {/* Modal */}
-      {showModal && (
-        <div className="fixed inset-0 z-50 backdrop-blur-sm bg-secondary/30 flex items-center justify-center">
-          <div className="bg-white p-8 rounded-2xl md:w-full max-w-lg shadow-xl space-y-6 border border-primary">
-            <h2 className="text-2xl font-bold text-center text-primary">
-              Checkout Product
-            </h2>
+        {/* Modal */}
+        <AnimatePresence mode="wait">
+          {" "}
+          {showModal && (
+            <motion.div
+              initial={{ scale: 0.9, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.9, opacity: 0 }}
+              transition={{ duration: 0.4 }}
+              className="fixed inset-0 z-50 backdrop-blur-sm bg-secondary/30 flex items-center justify-center"
+            >
+              <>
+                <div className="bg-white p-8 rounded-2xl md:w-full max-w-lg shadow-xl space-y-6 border border-primary">
+                  <h2 className="text-2xl font-bold text-center text-primary">
+                    Checkout Product
+                  </h2>
 
-            <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
-              <div>
-                <label className="label font-semibold">Product Name</label>
-                <input
-                  type="text"
-                  value={name}
-                  {...register("name", {
-                    required: "Product name is required",
-                  })}
-                  className="input input-bordered w-full focus:outline-none border-primary"
-                />
-                {errors.name && (
-                  <p className="text-red-500 text-sm">{errors.name.message}</p>
-                )}
-              </div>
+                  <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
+                    <div>
+                      <label className="label font-semibold">
+                        Product Name
+                      </label>
+                      <input
+                        type="text"
+                        value={name}
+                        {...register("name", {
+                          required: "Product name is required",
+                        })}
+                        className="input input-bordered w-full focus:outline-none border-primary"
+                      />
+                      {errors.name && (
+                        <p className="text-red-500 text-sm">
+                          {errors.name.message}
+                        </p>
+                      )}
+                    </div>
 
-              <div>
-                <label className="label font-semibold">Your Name</label>
-                <input
-                  type="text"
-                  value={user.displayName}
-                  {...register("buyerName", {
-                    required: "Buyer name is required",
-                  })}
-                  className="input input-bordered w-full focus:outline-none border-primary"
-                />
-                {errors.buyerName && (
-                  <p className="text-red-500 text-sm">
-                    {errors.buyerName.message}
-                  </p>
-                )}
-              </div>
+                    <div>
+                      <label className="label font-semibold">Your Name</label>
+                      <input
+                        type="text"
+                        value={user.displayName}
+                        {...register("buyerName", {
+                          required: "Buyer name is required",
+                        })}
+                        className="input input-bordered w-full focus:outline-none border-primary"
+                      />
+                      {errors.buyerName && (
+                        <p className="text-red-500 text-sm">
+                          {errors.buyerName.message}
+                        </p>
+                      )}
+                    </div>
 
-              <div>
-                <label className="label font-semibold">Email</label>
-                <input
-                  type="email"
-                  value={user.email}
-                  {...register("buyerEmail", {
-                    required: "Buyer Email is required",
-                  })}
-                  className="input input-bordered w-full focus:outline-none border-primary"
-                />
-                {errors.buyerEmail && (
-                  <p className="text-red-500 text-sm">
-                    {errors.buyerEmail.message}
-                  </p>
-                )}
-              </div>
+                    <div>
+                      <label className="label font-semibold">Email</label>
+                      <input
+                        type="email"
+                        value={user.email}
+                        {...register("buyerEmail", {
+                          required: "Buyer Email is required",
+                        })}
+                        className="input input-bordered w-full focus:outline-none border-primary"
+                      />
+                      {errors.buyerEmail && (
+                        <p className="text-red-500 text-sm">
+                          {errors.buyerEmail.message}
+                        </p>
+                      )}
+                    </div>
 
-              <div>
-                <label className="label font-semibold">Quantity</label>
-                <div className="flex items-center gap-3">
-                  <button
-                    onClick={handleDecrease}
-                    type="button"
-                    className="btn btn-sm btn-outline btn-primary"
-                  >
-                    −
-                  </button>
-                  <input
-                    type="text"
-                    {...register("quantity", {
-                      required: "Quantity is required",
-                    })}
-                    onChange={(e) => {
-                      const value = parseInt(e.target.value) || 0;
-                      setQuantity(value);
-                      setValue("quantity", value);
-                    }}
-                    className="input input-bordered w-24 text-center focus:outline-none border-primary"
-                  />
-                  {errors.quantity && (
-                    <p className="text-red-500 text-sm">
-                      {errors.quantity.message}
-                    </p>
-                  )}
-                  <button
-                    onClick={handleIncrease}
-                    type="button"
-                    className="btn btn-sm btn-outline btn-primary"
-                  >
-                    +
-                  </button>
+                    <div>
+                      <label className="label font-semibold">Quantity</label>
+                      <div className="flex items-center gap-3">
+                        <button
+                          onClick={handleDecrease}
+                          type="button"
+                          className="btn btn-sm btn-outline btn-primary"
+                        >
+                          −
+                        </button>
+                        <input
+                          type="text"
+                          {...register("quantity", {
+                            required: "Quantity is required",
+                          })}
+                          onChange={(e) => {
+                            const value = parseInt(e.target.value) || 0;
+                            setQuantity(value);
+                            setValue("quantity", value);
+                          }}
+                          className="input input-bordered w-24 text-center focus:outline-none border-primary"
+                        />
+                        {errors.quantity && (
+                          <p className="text-red-500 text-sm">
+                            {errors.quantity.message}
+                          </p>
+                        )}
+                        <button
+                          onClick={handleIncrease}
+                          type="button"
+                          className="btn btn-sm btn-outline btn-primary"
+                        >
+                          +
+                        </button>
+                      </div>
+                      <p className="text-xs text-gray-500 pt-1">
+                        Min: {min_selling_quantity}, Max: {availableQuantity}
+                      </p>
+                    </div>
+
+                    <div className="flex justify-between mt-6">
+                      <button
+                        type="button"
+                        onClick={() => setShowModal(false)}
+                        className="btn btn-primary btn-outline"
+                      >
+                        Cancel
+                      </button>
+                      <button
+                        type="submit"
+                        className="btn btn-primary transition-all hover:scale-105"
+                      >
+                        Confirm Order
+                      </button>
+                    </div>
+                  </form>
                 </div>
-                <p className="text-xs text-gray-500 pt-1">
-                  Min: {min_selling_quantity}, Max: {availableQuantity}
-                </p>
-              </div>
-
-              <div className="flex justify-between mt-6">
-                <button
-                  type="button"
-                  onClick={() => setShowModal(false)}
-                  className="btn btn-primary btn-outline"
-                >
-                  Cancel
-                </button>
-                <button
-                  type="submit"
-                  className="btn btn-primary transition-all hover:scale-105"
-                >
-                  Confirm Order
-                </button>
-              </div>
-            </form>
-          </div>
-        </div>
-      )}
-    </div>
+              </>
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </div>
+    </motion.div>
   );
 };
 

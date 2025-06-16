@@ -19,10 +19,10 @@ const Slider = () => {
   };
 
   const slideClass =
-    "relative overflow-hidden rounded-2xl shadow-lg transition-transform duration-300 ease-in-out hover:scale-105";
+    "relative overflow-hidden rounded-2xl shadow-lg shadow-[#CAF0F8] transition-transform duration-300 ease-in-out hover:scale-105";
 
   const badgeClass =
-    "absolute top-4 left-4 bg-gradient-to-r from-pink-500 to-red-500 text-white text-xs sm:text-sm font-semibold px-3 py-1 rounded-full backdrop-blur-md shadow-md";
+    "absolute top-4 left-7 bg-gradient-to-r from-[#0077B6] to-[#CAF0F8] text-white text-xs sm:text-sm font-semibold px-3 py-1 rounded-full backdrop-blur-md shadow-md";
 
   const imageClass =
     "w-full h-full object-cover rounded-2xl transition-opacity duration-300";
@@ -46,10 +46,12 @@ const Slider = () => {
           Deals You Can’t Miss
         </GradientText>
       </h1>
-      <p className="text-center text-accent text-sm">
-        Swipe through the hottest offers of the season.
+      <p className="text-center text-accent text-sm md:w-1/2 mx-auto">
+        "Swipe through the hottest offers of the season and discover unbeatable
+        deals, exclusive discounts, and limited-time specials waiting just for
+        you!"
       </p>
-      <div className="w-full max-w-7xl mx-auto ">
+      <div className="w-full max-w-7xl mx-auto">
         <Swiper
           onSwiper={(swiper) => {
             swiperRef.current = swiper;

@@ -7,6 +7,7 @@ import axios from "axios";
 import { toast } from "react-toastify";
 import Loading from "../../components/Loading/Loading";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
+import GradientText from "../../animations/GradientText/GradientText";
 
 const ProductDetails = () => {
   const { id } = useParams();
@@ -126,18 +127,34 @@ const ProductDetails = () => {
   };
 
   return (
-    <div className="max-w-5xl mx-auto mt-12 p-6 rounded-2xl shadow-2xl shadow-secondary">
-      <div className="grid md:grid-cols-2 gap-10">
-        <div>
+    <div className="max-w-5xl mx-auto mt-10 p-6 rounded-2xl shadow-2xl shadow-secondary">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+        <div className="flex items-center">
           <img
             src={image}
             alt={name}
-            className="rounded-2xl shadow-lg w-full h-[400px] object-cover"
+            className="rounded-2xl shadow-lg w-full object-cover"
           />
         </div>
 
         <div className="space-y-4 text-left">
-          <h1 className="text-4xl font-bold text-primary">{name}</h1>
+          <h1 className="md:text-4xl text-2xl">
+            <GradientText
+              colors={[
+                "#40ffaa",
+                "#4079ff",
+                "#40ffaa",
+                "#4079ff",
+                "#40ffaa",
+                "#0077B6",
+              ]}
+              animationSpeed={5}
+              showBorder={false}
+              className="custom-class"
+            >
+              {name}
+            </GradientText>
+          </h1>
 
           <div className="badge badge-secondary text-accent py-3 px-4">
             {category}
@@ -192,7 +209,7 @@ const ProductDetails = () => {
       {/* Modal */}
       {showModal && (
         <div className="fixed inset-0 z-50 backdrop-blur-sm bg-secondary/30 flex items-center justify-center">
-          <div className="bg-white p-8 rounded-2xl w-full max-w-lg shadow-xl space-y-6 border border-primary">
+          <div className="bg-white p-8 rounded-2xl md:w-full max-w-lg shadow-xl space-y-6 border border-primary">
             <h2 className="text-2xl font-bold text-center text-primary">
               Checkout Product
             </h2>
@@ -206,7 +223,7 @@ const ProductDetails = () => {
                   {...register("name", {
                     required: "Product name is required",
                   })}
-                  className="input input-bordered w-full"
+                  className="input input-bordered w-full focus:outline-none border-primary"
                 />
                 {errors.name && (
                   <p className="text-red-500 text-sm">{errors.name.message}</p>
@@ -221,7 +238,7 @@ const ProductDetails = () => {
                   {...register("buyerName", {
                     required: "Buyer name is required",
                   })}
-                  className="input input-bordered w-full"
+                  className="input input-bordered w-full focus:outline-none border-primary"
                 />
                 {errors.buyerName && (
                   <p className="text-red-500 text-sm">
@@ -238,7 +255,7 @@ const ProductDetails = () => {
                   {...register("buyerEmail", {
                     required: "Buyer Email is required",
                   })}
-                  className="input input-bordered w-full"
+                  className="input input-bordered w-full focus:outline-none border-primary"
                 />
                 {errors.buyerEmail && (
                   <p className="text-red-500 text-sm">
@@ -253,7 +270,7 @@ const ProductDetails = () => {
                   <button
                     onClick={handleDecrease}
                     type="button"
-                    className="btn btn-sm btn-outline"
+                    className="btn btn-sm btn-outline btn-primary"
                   >
                     −
                   </button>
@@ -267,7 +284,7 @@ const ProductDetails = () => {
                       setQuantity(value);
                       setValue("quantity", value);
                     }}
-                    className="input input-bordered w-24 text-center"
+                    className="input input-bordered w-24 text-center focus:outline-none border-primary"
                   />
                   {errors.quantity && (
                     <p className="text-red-500 text-sm">
@@ -277,7 +294,7 @@ const ProductDetails = () => {
                   <button
                     onClick={handleIncrease}
                     type="button"
-                    className="btn btn-sm btn-outline"
+                    className="btn btn-sm btn-outline btn-primary"
                   >
                     +
                   </button>
@@ -291,11 +308,14 @@ const ProductDetails = () => {
                 <button
                   type="button"
                   onClick={() => setShowModal(false)}
-                  className="btn btn-outline"
+                  className="btn btn-primary btn-outline"
                 >
                   Cancel
                 </button>
-                <button type="submit" className="btn btn-primary">
+                <button
+                  type="submit"
+                  className="btn btn-primary transition-all hover:scale-105"
+                >
                   Confirm Order
                 </button>
               </div>

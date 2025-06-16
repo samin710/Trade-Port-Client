@@ -16,7 +16,7 @@ const Footer = () => {
             </li>
             <li>
               <a className="hover:underline" href="#">
-                Design
+                Sales
               </a>
             </li>
             <li>
@@ -69,11 +69,6 @@ const Footer = () => {
             <li>
               <a className="hover:underline" href="#">
                 Privacy policy
-              </a>
-            </li>
-            <li>
-              <a className="hover:underline" href="#">
-                Cookie policy
               </a>
             </li>
           </ul>

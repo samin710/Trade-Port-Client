@@ -25,7 +25,7 @@ const CategoryWiseProducts = () => {
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
       {products.map((product) => (
         <div key={product._id} className="py-10 ">
-          <div className="card shadow-xl shadow-secondary">
+          <div className="card shadow-xl shadow-secondary h-full">
             <figure>
               <img
                 src={product.image}

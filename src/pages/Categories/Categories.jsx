@@ -1,18 +1,35 @@
 import React, { useEffect } from "react";
 import { Link } from "react-router";
+import GradientText from "../../animations/GradientText/GradientText";
 
 const Categories = () => {
-    useEffect(() => {
-      document.title = "TradePort | Categories";
-    }, []);
+  useEffect(() => {
+    document.title = "TradePort | Categories";
+  }, []);
   return (
     <>
-      <h1 className="text-center py-10 text-2xl md:text-4xl">All Categories</h1>
+      <h1 className="text-center py-10 text-2xl md:text-4xl">
+        <GradientText
+          colors={[
+            "#40ffaa",
+            "#4079ff",
+            "#40ffaa",
+            "#4079ff",
+            "#40ffaa",
+            "#0077B6",
+          ]}
+          animationSpeed={5}
+          showBorder={false}
+          className="custom-class"
+        >
+          All Categories
+        </GradientText>
+      </h1>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
         {" "}
         <Link
           to={`/categoryWiseProducts/Electronics and Gadgets`}
-          className="card shadow-xl hover:shadow-2xl rounded-2xl mb-10"
+          className="card shadow-xl shadow-secondary hover:shadow-2xl rounded-2xl mb-10 transition-transform duration-300 ease-in-out hover:scale-105"
         >
           <figure>
             <img
@@ -30,7 +47,7 @@ const Categories = () => {
         </Link>
         <Link
           to={`/categoryWiseProducts/Home and Kitchen Appliances`}
-          className="card shadow-xl hover:shadow-2xl rounded-2xl mb-10"
+          className="card shadow-xl shadow-secondary hover:shadow-2xl rounded-2xl mb-10 transition-transform duration-300 ease-in-out hover:scale-105"
         >
           <figure>
             <img
@@ -40,13 +57,14 @@ const Categories = () => {
           </figure>
           <div className="card-body px-6 py-4">
             <p className="text-lg  text-center">
-              <strong>Category:</strong> <span>Home and Kitchen Appliances</span>
+              <strong>Category:</strong>{" "}
+              <span>Home and Kitchen Appliances</span>
             </p>
           </div>
         </Link>
         <Link
           to={`/categoryWiseProducts/Fashion and Apparel`}
-          className="card shadow-xl hover:shadow-2xl rounded-2xl mb-10"
+          className="card shadow-xl hover:shadow-2xl rounded-2xl mb-10 transition-transform duration-300 ease-in-out hover:scale-105 shadow-secondary"
         >
           <figure>
             <img
@@ -62,7 +80,7 @@ const Categories = () => {
         </Link>
         <Link
           to={`/categoryWiseProducts/Industrial Machinery and Tools`}
-          className="card shadow-xl hover:shadow-2xl rounded-2xl mb-10"
+          className="card shadow-xl hover:shadow-2xl rounded-2xl mb-10 transition-transform duration-300 ease-in-out hover:scale-105 shadow-secondary"
         >
           <figure>
             <img
@@ -72,13 +90,14 @@ const Categories = () => {
           </figure>
           <div className="card-body px-6 py-4">
             <p className="text-lg  text-center">
-              <strong>Category:</strong> <span>Industrial Machinery and Tools</span>
+              <strong>Category:</strong>{" "}
+              <span>Industrial Machinery and Tools</span>
             </p>
           </div>
         </Link>
         <Link
           to={`/categoryWiseProducts/Health and Beauty`}
-          className="card shadow-xl hover:shadow-2xl rounded-2xl mb-10"
+          className="card shadow-xl hover:shadow-2xl rounded-2xl mb-10 transition-transform duration-300 ease-in-out hover:scale-105 shadow-secondary"
         >
           <figure>
             <img
@@ -94,7 +113,7 @@ const Categories = () => {
         </Link>
         <Link
           to={`/categoryWiseProducts/Automotive Parts and Accessories`}
-          className="card shadow-xl hover:shadow-2xl rounded-2xl mb-10"
+          className="card shadow-xl hover:shadow-2xl rounded-2xl mb-10 transition-transform duration-300 ease-in-out hover:scale-105 shadow-secondary"
         >
           <figure>
             <img
@@ -104,13 +123,14 @@ const Categories = () => {
           </figure>
           <div className="card-body px-6 py-4">
             <p className="text-lg  text-center">
-              <strong>Category:</strong> <span>Automotive Parts and Accessories</span>
+              <strong>Category:</strong>{" "}
+              <span>Automotive Parts and Accessories</span>
             </p>
           </div>
         </Link>
         <Link
           to={`/categoryWiseProducts/Office Supplies and Stationery`}
-          className="card shadow-xl hover:shadow-2xl rounded-2xl mb-10"
+          className="card shadow-xl hover:shadow-2xl rounded-2xl mb-10 transition-transform duration-300 ease-in-out hover:scale-105 shadow-secondary"
         >
           <figure>
             <img
@@ -120,7 +140,8 @@ const Categories = () => {
           </figure>
           <div className="card-body px-6 py-4">
             <p className="text-lg  text-center">
-              <strong>Category:</strong> <span>Office Supplies and Stationery</span>
+              <strong>Category:</strong>{" "}
+              <span>Office Supplies and Stationery</span>
             </p>
           </div>
         </Link>

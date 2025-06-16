@@ -1,6 +1,7 @@
 import React from "react";
 import { FaStar } from "react-icons/fa";
 import * as motion from "motion/react-client";
+import GradientText from "../../animations/GradientText/GradientText";
 
 const Testimonials = () => {
   const testimonials = [
@@ -54,9 +55,23 @@ const Testimonials = () => {
     },
   ];
   return (
-    <div className="py-16 px-4 bg-base-100">
-      <h2 className="text-center mt-4 md:mt-8 text-2xl md:text-4xl font-bold">
-        What Our Customers Say
+    <div className="py-10">
+      <h2 className="text-center pb-10 text-2xl md:text-4xl font-bold">
+        <GradientText
+          colors={[
+            "#40ffaa",
+            "#4079ff",
+            "#40ffaa",
+            "#4079ff",
+            "#40ffaa",
+            "#0077B6",
+          ]}
+          animationSpeed={5}
+          showBorder={false}
+          className="custom-class"
+        >
+          What Our Customers Say
+        </GradientText>
       </h2>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
         {testimonials.map((t, index) => (
@@ -66,7 +81,7 @@ const Testimonials = () => {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: index * 0.2 }}
             viewport={{ once: false }}
-            className=" shadow-xl shadow-secondary rounded-2xl p-6 border border-base-200"
+            className=" shadow-xl shadow-secondary rounded-2xl p-6 border border-secondary border-base-200"
           >
             <div className="flex items-center space-x-4 mb-4">
               <img

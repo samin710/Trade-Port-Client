@@ -13,10 +13,10 @@
   --color-secondary: #caf0f8;
   --color-accent: #6f6f6f;
 }
-@plugin "daisyui/theme" {
+/* @plugin "daisyui/theme" {
   name: "dark";
   default: true;
-  --color-primary: #0077b6;
-}
+  --color-primary: #04db5b;
+} */
 
 @custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));

@@ -4,7 +4,7 @@ import { FaXTwitter } from "react-icons/fa6";
 
 const Footer = () => {
   return (
-    <footer className="bg-gradient-to-r from-primary to-secondary text-white px-6 py-12 md:mt-10 mt-5">
+    <footer className="bg-gradient-to-r from-primary dark:from-secondary to-secondary dark:to-base-100 px-6 py-12 md:mt-10 mt-5">
       <div className="w-11/12 mx-auto grid grid-cols-1 md:grid-cols-4 gap-8">
         <div>
           <h6 className="text-lg font-semibold mb-4">Services</h6>
@@ -80,7 +80,7 @@ const Footer = () => {
             <a
               href="https://x.com/"
               target="_blank"
-              className="bg-white text-[#0077B6] p-2 rounded-full shadow-md hover:bg-[#0077B6] hover:text-white transition"
+              className="bg-white text-primary p-2 rounded-full shadow-md hover:bg-[#0077B6] hover:text-white transition dark:bg-base-100 dark:text-secondary dark:hover:bg-secondary dark:hover:text-base-100"
               aria-label="X"
             >
               <FaXTwitter size={20} />
@@ -88,7 +88,7 @@ const Footer = () => {
             <a
               href="https://www.youtube.com/"
               target="_blank"
-              className="bg-white text-[#0077B6] p-2 rounded-full shadow-md hover:bg-[#FF0000] hover:text-white transition"
+              className="bg-white text-primary p-2 rounded-full shadow-md hover:bg-[#FF0000] hover:text-white transition dark:bg-base-100 dark:text-secondary dark:hover:text-base-100"
               aria-label="YouTube"
             >
               <FaYoutube size={20} />
@@ -96,7 +96,7 @@ const Footer = () => {
             <a
               href="https://www.facebook.com/"
               target="_blank"
-              className="bg-white text-[#0077B6] p-2 rounded-full shadow-md hover:bg-[#3b5998] hover:text-white transition"
+              className="bg-white text-primary p-2 rounded-full shadow-md hover:bg-[#3b5998] hover:text-white transition dark:bg-base-100 dark:text-secondary dark:hover:text-base-100"
               aria-label="Facebook"
             >
               <FaFacebookF size={20} />
@@ -104,7 +104,7 @@ const Footer = () => {
             <a
               href="https://www.instagram.com/"
               target="_blank"
-              className="bg-white text-[#0077B6] p-2 rounded-full shadow-md hover:bg-gradient-to-tr from-pink-500 via-red-500 to-yellow-500 hover:text-white transition"
+              className="bg-white text-primary p-2 rounded-full shadow-md hover:bg-gradient-to-tr from-pink-500 via-red-500 to-yellow-500 hover:text-white transition dark:bg-base-100 dark:text-secondary dark:hover:text-base-100"
               aria-label="Instagram"
             >
               <FaInstagram size={20} />
@@ -113,7 +113,7 @@ const Footer = () => {
         </div>
       </div>
 
-      <div className="mt-12 text-center text-sm text-white/80">
+      <div className="mt-12 text-center text-sm">
         © {new Date().getFullYear()} TradePort. All rights reserved.
       </div>
     </footer>

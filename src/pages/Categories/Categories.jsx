@@ -47,8 +47,11 @@ const Categories = () => {
               />
             </figure>
             <div className="card-body px-6 py-4">
-              <p className="text-lg  text-center">
-                <strong>Category:</strong> <span>Electronics and Gadgets</span>
+              <p className="text-lg  text-center italic">
+                <strong className="text-primary dark:text-accent">
+                  Category:
+                </strong>{" "}
+                <span>Electronics and Gadgets</span>
               </p>
             </div>
           </Link>
@@ -63,8 +66,10 @@ const Categories = () => {
               />
             </figure>
             <div className="card-body px-6 py-4">
-              <p className="text-lg  text-center">
-                <strong>Category:</strong>{" "}
+              <p className="text-lg  text-center italic">
+                <strong className="text-primary dark:text-accent">
+                  Category:
+                </strong>{" "}
                 <span>Home and Kitchen Appliances</span>
               </p>
             </div>
@@ -80,8 +85,11 @@ const Categories = () => {
               />
             </figure>
             <div className="card-body px-6 py-4">
-              <p className="text-lg  text-center">
-                <strong>Category:</strong> <span>Fashion and Apparel</span>
+              <p className="text-lg  text-center italic">
+                <strong className="text-primary dark:text-accent">
+                  Category:
+                </strong>{" "}
+                <span>Fashion and Apparel</span>
               </p>
             </div>
           </Link>
@@ -96,8 +104,10 @@ const Categories = () => {
               />
             </figure>
             <div className="card-body px-6 py-4">
-              <p className="text-lg  text-center">
-                <strong>Category:</strong>{" "}
+              <p className="text-lg  text-center italic">
+                <strong className="text-primary dark:text-accent">
+                  Category:
+                </strong>{" "}
                 <span>Industrial Machinery and Tools</span>
               </p>
             </div>
@@ -113,8 +123,11 @@ const Categories = () => {
               />
             </figure>
             <div className="card-body px-6 py-4">
-              <p className="text-lg  text-center">
-                <strong>Category:</strong> <span>Health and Beauty</span>
+              <p className="text-lg  text-center italic">
+                <strong className="text-primary dark:text-accent">
+                  Category:
+                </strong>{" "}
+                <span>Health and Beauty</span>
               </p>
             </div>
           </Link>
@@ -129,8 +142,10 @@ const Categories = () => {
               />
             </figure>
             <div className="card-body px-6 py-4">
-              <p className="text-lg  text-center">
-                <strong>Category:</strong>{" "}
+              <p className="text-lg  text-center italic">
+                <strong className="text-primary dark:text-accent">
+                  Category:
+                </strong>{" "}
                 <span>Automotive Parts and Accessories</span>
               </p>
             </div>
@@ -146,8 +161,10 @@ const Categories = () => {
               />
             </figure>
             <div className="card-body px-6 py-4">
-              <p className="text-lg  text-center">
-                <strong>Category:</strong>{" "}
+              <p className="text-lg  text-center italic">
+                <strong className="text-primary dark:text-accent">
+                  Category:
+                </strong>{" "}
                 <span>Office Supplies and Stationery</span>
               </p>
             </div>

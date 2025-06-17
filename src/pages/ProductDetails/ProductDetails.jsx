@@ -133,7 +133,7 @@ const ProductDetails = () => {
       animate={{ opacity: 1, scale: 1 }}
       transition={{ duration: 0.3 }}
     >
-      <div className="max-w-5xl mx-auto mt-10 p-6 rounded-2xl shadow-2xl shadow-secondary">
+      <div className="max-w-5xl mx-auto mt-10 p-6 rounded-2xl shadow-2xl shadow-primary dark:shadow-secondary">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
           <div className="flex items-center">
             <img
@@ -167,25 +167,37 @@ const ProductDetails = () => {
             </div>
 
             <p className="text-accent text-lg">
-              <strong className="text-primary">Brand:</strong> {brand}
+              <strong className="text-primary dark:text-secondary">
+                Brand:
+              </strong>{" "}
+              {brand}
             </p>
 
             <p className="text-accent text-lg">
-              <strong className="text-primary">Price:</strong> {price} BDT
+              <strong className="text-primary dark:text-secondary">
+                Price:
+              </strong>{" "}
+              {price} BDT
             </p>
 
             <p className="text-accent text-lg">
-              <strong className="text-primary">Available Quantity:</strong>{" "}
+              <strong className="text-primary dark:text-secondary">
+                Available Quantity:
+              </strong>{" "}
               {availableQuantity}
             </p>
 
             <p className="text-accent text-lg">
-              <strong className="text-primary">Minimum Order:</strong>{" "}
+              <strong className="text-primary dark:text-secondary">
+                Minimum Order:
+              </strong>{" "}
               {min_selling_quantity}
             </p>
 
             <div className="flex items-center text-yellow-500 gap-1">
-              <strong className="text-primary">Rating:</strong>
+              <strong className="text-primary dark:text-secondary">
+                Rating:
+              </strong>
               {[...Array(Math.round(rating))].map((_, idx) => (
                 <FaStar key={idx} />
               ))}
@@ -193,7 +205,9 @@ const ProductDetails = () => {
             </div>
 
             <p className="text-accent pt-3">
-              <strong className="text-primary block mb-1">Description:</strong>
+              <strong className="text-primary dark:text-secondary block mb-1">
+                Description:
+              </strong>
               {description}
             </p>
 
@@ -205,7 +219,7 @@ const ProductDetails = () => {
               }}
               className="pt-6"
             >
-              <button className="btn btn-primary btn-wide text-lg font-semibold rounded-xl shadow-md transition-all hover:scale-105">
+              <button className="btn btn-primary btn-wide text-lg font-semibold rounded-xl shadow-md transition-all hover:scale-105 dark:btn-secondary dark:text-base-100">
                 Buy Now
               </button>
             </div>
@@ -224,8 +238,8 @@ const ProductDetails = () => {
               className="fixed inset-0 z-50 backdrop-blur-sm bg-secondary/30 dark:bg-base-100/30 flex items-center justify-center"
             >
               <>
-                <div className="bg-white dark:bg-base-100 p-8 rounded-2xl md:w-full max-w-lg shadow-xl space-y-6 border border-primary">
-                  <h2 className="text-2xl font-bold text-center text-primary">
+                <div className="bg-white dark:bg-base-100 p-8 rounded-2xl md:w-full max-w-lg shadow-xl space-y-6 border border-primary dark:border-secondary">
+                  <h2 className="text-2xl font-bold text-center">
                     <GradientText
                       colors={[
                         "#40ffaa",
@@ -245,7 +259,7 @@ const ProductDetails = () => {
 
                   <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
                     <div>
-                      <label className="label font-semibold">
+                      <label className="label font-semibold text-accent">
                         Product Name
                       </label>
                       <input
@@ -254,7 +268,7 @@ const ProductDetails = () => {
                         {...register("name", {
                           required: "Product name is required",
                         })}
-                        className="input input-bordered w-full focus:outline-none border-primary"
+                        className="input input-bordered w-full focus:outline-none border-primary dark:border-secondary"
                       />
                       {errors.name && (
                         <p className="text-red-500 text-sm">
@@ -264,14 +278,16 @@ const ProductDetails = () => {
                     </div>
 
                     <div>
-                      <label className="label font-semibold">Your Name</label>
+                      <label className="label font-semibold text-accent">
+                        Your Name
+                      </label>
                       <input
                         type="text"
                         value={user.displayName}
                         {...register("buyerName", {
                           required: "Buyer name is required",
                         })}
-                        className="input input-bordered w-full focus:outline-none border-primary"
+                        className="input input-bordered w-full focus:outline-none border-primary dark:border-secondary"
                       />
                       {errors.buyerName && (
                         <p className="text-red-500 text-sm">
@@ -281,14 +297,16 @@ const ProductDetails = () => {
                     </div>
 
                     <div>
-                      <label className="label font-semibold">Email</label>
+                      <label className="label font-semibold text-accent">
+                        Email
+                      </label>
                       <input
                         type="email"
                         value={user.email}
                         {...register("buyerEmail", {
                           required: "Buyer Email is required",
                         })}
-                        className="input input-bordered w-full focus:outline-none border-primary"
+                        className="input input-bordered w-full focus:outline-none border-primary dark:border-secondary"
                       />
                       {errors.buyerEmail && (
                         <p className="text-red-500 text-sm">
@@ -298,12 +316,14 @@ const ProductDetails = () => {
                     </div>
 
                     <div>
-                      <label className="label font-semibold">Quantity</label>
+                      <label className="label font-semibold text-accent">
+                        Quantity
+                      </label>
                       <div className="flex items-center gap-3">
                         <button
                           onClick={handleDecrease}
                           type="button"
-                          className="btn btn-sm btn-outline btn-primary"
+                          className="btn btn-sm btn-outline btn-primary dark:btn-secondary dark:border-secondary dark:text-accent"
                         >
                           −
                         </button>
@@ -317,7 +337,7 @@ const ProductDetails = () => {
                             setQuantity(value);
                             setValue("quantity", value);
                           }}
-                          className="input input-bordered w-24 text-center focus:outline-none border-primary"
+                          className="input input-bordered w-24 text-center focus:outline-none border-primary dark:border-secondary"
                         />
                         {errors.quantity && (
                           <p className="text-red-500 text-sm">
@@ -327,12 +347,12 @@ const ProductDetails = () => {
                         <button
                           onClick={handleIncrease}
                           type="button"
-                          className="btn btn-sm btn-outline btn-primary"
+                          className="btn btn-sm btn-outline btn-primary dark:btn-secondary dark:border-secondary dark:text-accent"
                         >
                           +
                         </button>
                       </div>
-                      <p className="text-xs text-gray-500 pt-1">
+                      <p className="text-xs text-accent pt-1">
                         Min: {min_selling_quantity}, Max: {availableQuantity}
                       </p>
                     </div>
@@ -341,13 +361,13 @@ const ProductDetails = () => {
                       <button
                         type="button"
                         onClick={() => setShowModal(false)}
-                        className="btn btn-primary btn-outline"
+                        className="btn btn-primary btn-outline dark:btn-secondary dark:hover:text-base-100"
                       >
                         Cancel
                       </button>
                       <button
                         type="submit"
-                        className="btn btn-primary transition-all hover:scale-105"
+                        className="btn btn-primary transition-all hover:scale-105 dark:btn-secondary dark:text-base-100"
                       >
                         Confirm Order
                       </button>

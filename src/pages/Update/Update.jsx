@@ -222,7 +222,7 @@ const Update = () => {
 
             <button
               type="submit"
-              className="btn btn-primary w-full md:mt-4 transition-all hover:scale-105"
+              className="btn btn-primary dark:btn-secondary dark:text-base-100 w-full md:mt-4 transition-all hover:scale-105"
             >
               Update Product
             </button>

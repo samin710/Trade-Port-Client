@@ -15,7 +15,9 @@ const ProductCard = ({ product }) => {
           </figure>
           <div className="card-body">
             <h2 className="card-title">{name}</h2>
-            <p>{brand}</p>
+            <p className="badge badge-secondary capitalize text-accent dark:text-gray-300 ">
+              {brand}
+            </p>
             <p>
               <strong>Category:</strong> {category}
             </p>
@@ -36,7 +38,7 @@ const ProductCard = ({ product }) => {
               to={`/update/${_id}`}
               className="card-actions mt-4 justify-end"
             >
-              <button className="btn btn-outline btn-primary flex items-center gap-2">
+              <button className="btn btn-outline btn-primary dark:btn-secondary dark:hover:text-base-100 flex items-center gap-2">
                 <FaEdit />
                 Update
               </button>

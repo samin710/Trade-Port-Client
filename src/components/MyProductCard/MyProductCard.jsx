@@ -53,7 +53,7 @@ const MyProductCard = ({ product }) => {
             </p>
             <div className="flex items-center justify-between mt-3 md:mt-5">
               <Link to={`/update/${_id}`} className="card-actions">
-                <button className="btn btn-outline btn-primary flex items-center gap-2">
+                <button className="btn btn-outline btn-primary dark:btn-secondary dark:hover:text-base-100 flex items-center gap-2">
                   <FaEdit />
                   Update
                 </button>
@@ -61,7 +61,7 @@ const MyProductCard = ({ product }) => {
               <div>
                 <button
                   onClick={() => handleRemove(_id)}
-                  className="btn btn-outline btn-primary flex items-center gap-2"
+                  className="btn btn-outline btn-primary dark:btn-secondary dark:hover:text-base-100 flex items-center gap-2"
                 >
                   <FaTrashAlt className="mr-2" /> Delete
                 </button>

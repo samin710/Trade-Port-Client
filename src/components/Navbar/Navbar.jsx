@@ -26,7 +26,7 @@ const Navbar = () => {
   };
   return (
     <>
-      <div className="navbar my-3 md:my-8 rounded-lg shadow-md shadow-secondary ">
+      <div className="navbar my-3 md:my-8 rounded-lg shadow-md shadow-secondary border border-secondary dark:border-secondary/30">
         <div className="navbar-start">
           <div className="dropdown">
             <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -89,7 +89,7 @@ const Navbar = () => {
               <img
                 src={logoImg}
                 alt="Logo"
-                className="w-full rounded-md mx-auto border border-primary"
+                className="w-full rounded-md mx-auto border border-primary dark:border-secondary"
               />
             </div>
             <p className="hidden md:block text-xl md:text-2xl">TradePort</p>
@@ -102,7 +102,7 @@ const Navbar = () => {
                 to={"/"}
                 className={({ isActive }) =>
                   isActive
-                    ? " text-primary font-medium border-b-4 border-b-primary "
+                    ? " text-primary font-medium border-b-4 border-b-primary dark:border-b-base-100 dark:text-base-100"
                     : " font-medium"
                 }
               >
@@ -114,7 +114,7 @@ const Navbar = () => {
                 to={"/categories"}
                 className={({ isActive }) =>
                   isActive
-                    ? " text-primary font-medium border-b-4 border-b-primary "
+                    ? " text-primary font-medium border-b-4 border-b-primary dark:border-b-base-100 dark:text-base-100"
                     : " font-medium "
                 }
               >
@@ -126,7 +126,7 @@ const Navbar = () => {
                 to={"/allProducts"}
                 className={({ isActive }) =>
                   isActive
-                    ? " text-primary font-medium border-b-4 border-b-primary "
+                    ? " text-primary font-medium border-b-4 border-b-primary dark:border-b-base-100 dark:text-base-100"
                     : " font-medium "
                 }
               >
@@ -138,7 +138,7 @@ const Navbar = () => {
                 to={"/addProduct"}
                 className={({ isActive }) =>
                   isActive
-                    ? " text-primary font-medium border-b-4 border-b-primary "
+                    ? " text-primary font-medium border-b-4 border-b-primary dark:border-b-base-100 dark:text-base-100"
                     : " font-medium "
                 }
               >
@@ -150,8 +150,8 @@ const Navbar = () => {
                 to={"/myProducts"}
                 className={({ isActive }) =>
                   isActive
-                    ? " text-primary font-medium border-b-4 border-b-primary "
-                    : " font-medium "
+                    ? "text-primary font-medium border-b-4 border-b-primary dark:border-b-base-100 dark:text-base-100"
+                    : " font-medium"
                 }
               >
                 My products
@@ -162,7 +162,7 @@ const Navbar = () => {
                 to={"/cart"}
                 className={({ isActive }) =>
                   isActive
-                    ? " text-primary font-medium border-b-4 border-b-primary "
+                    ? " text-primary font-medium border-b-4 border-b-primary dark:border-b-base-100 dark:text-base-100"
                     : " font-medium "
                 }
               >
@@ -181,7 +181,10 @@ const Navbar = () => {
           {user ? (
             <div className="relative menu-horizontal gap-3">
               {/* Avatar Button */}
-              <div id="clickable" className=" flex justify-between items-center rounded-full">
+              <div
+                id="clickable"
+                className=" flex justify-between items-center rounded-full"
+              >
                 <button>
                   <img
                     className="w-10 rounded-full"
@@ -200,7 +203,7 @@ const Navbar = () => {
                   onClick={() => {
                     handleLogout();
                   }}
-                  className="w-full border-primary border text-center rounded-md px-4 py-2 text-sm bg-primary cursor-pointer"
+                  className="w-full border-primary text-center rounded-md px-4 py-2 text-sm bg-primary dark:bg-secondary cursor-pointer"
                 >
                   Logout
                 </button>

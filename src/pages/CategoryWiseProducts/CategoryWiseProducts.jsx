@@ -70,7 +70,7 @@ const CategoryWiseProducts = () => {
                       to={`/productDetails/${product._id}`}
                       className="card-actions mt-4 justify-end"
                     >
-                      <button className="btn btn-outline btn-primary flex items-center gap-2">
+                      <button className="btn btn-outline btn-primary dark:btn-secondary dark:hover:text-base-100 flex items-center gap-2">
                         Details
                       </button>
                     </Link>

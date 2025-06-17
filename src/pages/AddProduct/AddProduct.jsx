@@ -53,7 +53,7 @@ const AddProduct = () => {
     >
       <div className="max-w-4xl mx-auto p-6 rounded-2xl shadow-2xl shadow-secondary my-10 border border-secondary">
         <div className="flex justify-center items-center">
-          <h2 className="text-2xl md:text-4xl font-bold text-primary">
+          <h2 className="text-2xl md:text-4xl font-bold text-primary dark:text-secondary">
             <BlurText
               text="Add a New Product"
               delay={150}
@@ -240,14 +240,16 @@ const AddProduct = () => {
 
           <button
             type="submit"
-            className="btn btn-primary w-full mt-4 transition-all hover:scale-105"
+            className="btn btn-primary dark:btn-secondary dark:text-base-100 w-full mt-4 transition-all hover:scale-105"
           >
             Add Product
           </button>
 
-          <div className="md:mt-10 mt-5 p-4 rounded-lg bg-secondary">
-            <h3 className="text-lg font-semibold mb-2">Product Content</h3>
-            <p className="text-accent">
+          <div className="md:mt-10 mt-5 p-4 rounded-lg bg-secondary dark:bg-secondary/10 border  border-secondary">
+            <h3 className="text-lg font-semibold mb-2 dark:text-accent">
+              Product Content
+            </h3>
+            <p className="text-accent dark:text-gray-400">
               Make sure all product details are accurate and up-to-date. This
               helps buyers make confident purchasing decisions and enhances the
               visibility of your product on the platform.

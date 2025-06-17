@@ -105,7 +105,7 @@ const Cart = () => {
                     <p className="text-sm text-accent mb-1">
                       {item.productDetails.brand}
                     </p>
-                    <p className="badge badge-secondary text-gray-700 capitalize ">
+                    <p className="badge badge-secondary text-gray-800 capitalize ">
                       {item.productDetails.category}
                     </p>
                     <p>
@@ -135,7 +135,7 @@ const Cart = () => {
                       }
                       className="card-actions justify-end mt-4"
                     >
-                      <button className="btn btn-primary btn-sm ">
+                      <button className="btn btn-primary dark:btn-secondary dark:text-base-100 btn-sm ">
                         <FaTrashAlt className="mr-2" /> Remove
                       </button>
                     </div>

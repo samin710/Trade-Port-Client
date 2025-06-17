@@ -19,10 +19,10 @@ const Slider = () => {
   };
 
   const slideClass =
-    "relative overflow-hidden rounded-2xl shadow-lg shadow-[#CAF0F8] transition-transform duration-300 ease-in-out hover:scale-105";
+    "relative overflow-hidden rounded-2xl shadow-xl dark:shadow-secondary shadow-primary transition-transform duration-300 ease-in-out hover:scale-105";
 
   const badgeClass =
-    "absolute top-4 left-7 bg-gradient-to-r from-[#0077B6] to-[#CAF0F8] text-white text-xs sm:text-sm font-semibold px-3 py-1 rounded-full backdrop-blur-md shadow-md";
+    "absolute top-4 left-7 bg-gradient-to-r from-primary dark:from-secondary to-secondary dark:to-base-100 text-xs sm:text-sm font-semibold px-3 py-1 rounded-full backdrop-blur-md shadow-md";
 
   const imageClass =
     "w-full h-full object-cover rounded-2xl transition-opacity duration-300";

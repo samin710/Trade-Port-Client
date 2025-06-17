@@ -61,7 +61,7 @@ const AllProducts = () => {
             </h1>
             <div className="flex flex-col md:flex-row items-center justify-between gap-4">
               <button
-                className="btn btn-outline btn-primary"
+                className="btn btn-outline btn-primary dark:btn-secondary"
                 onClick={() => setShowAvailableOnly((prev) => !prev)}
               >
                 {showAvailableOnly
@@ -70,7 +70,7 @@ const AllProducts = () => {
               </button>
 
               <select
-                className="select select-bordered max-w-xs focus:outline-none focus:border-primary"
+                className="select select-bordered max-w-xs focus:outline-none focus:border-primary dark:focus:border-secondary dark:border-secondary border-primary dark:text-accent"
                 defaultValue={""}
                 onChange={(e) => setViewMode(e.target.value)}
               >
@@ -107,7 +107,7 @@ const AllProducts = () => {
                 >
                   <div className="overflow-x-auto rounded-xl shadow-lg shadow-secondary border border-secondary mt-4 md:mt-9">
                     <table className="min-w-full ">
-                      <thead className="bg-gradient-to-b from-primary to-secondary text-white">
+                      <thead className="bg-gradient-to-b from-primary dark:from-secondary to-secondary dark:to-base-100 text-white">
                         <tr>
                           <th className="py-4 px-6 text-left text-sm font-semibold uppercase tracking-wider">
                             Image

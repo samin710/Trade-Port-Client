@@ -83,7 +83,7 @@ const Slider = () => {
           >
             <span className={badgeClass}>30% OFF</span>
             <img
-              src="https://swiperjs.com/demos/images/nature-1.jpg"
+              src="https://i.ibb.co/ynZqqLJG/Gaming-Headphones-with-LED-Accents.png"
               alt="Nature 1"
               className={imageClass}
             />
@@ -96,7 +96,7 @@ const Slider = () => {
           >
             <span className={badgeClass}>Buy 1 Get 1</span>
             <img
-              src="https://swiperjs.com/demos/images/nature-2.jpg"
+              src="https://i.ibb.co/ynv3cGvn/Nike-Air-Force-1-x-Travis-Scott.png"
               alt="Nature 2"
               className={imageClass}
             />
@@ -109,7 +109,7 @@ const Slider = () => {
           >
             <span className={badgeClass}>15% OFF</span>
             <img
-              src="https://swiperjs.com/demos/images/nature-3.jpg"
+              src="https://i.ibb.co/RpGLSkpV/Iconic-Air-Jordan-1-Bred-Sneakers.png"
               alt="Nature 3"
               className={imageClass}
             />
@@ -122,7 +122,7 @@ const Slider = () => {
           >
             <span className={badgeClass}>Free Shipping</span>
             <img
-              src="https://swiperjs.com/demos/images/nature-4.jpg"
+              src="https://i.ibb.co/VWmPGpLP/Adidas-Body-Spray-on-Urban-Pavement.png"
               alt="Nature 4"
               className={imageClass}
             />
@@ -135,7 +135,7 @@ const Slider = () => {
           >
             <span className={badgeClass}>50% OFF</span>
             <img
-              src="https://swiperjs.com/demos/images/nature-5.jpg"
+              src="https://i.ibb.co/Tqnm3gng/Olay-Cream-on-Warm-Countertop.png"
               alt="Nature 5"
               className={imageClass}
             />
@@ -148,7 +148,7 @@ const Slider = () => {
           >
             <span className={badgeClass}>Limited Deal</span>
             <img
-              src="https://swiperjs.com/demos/images/nature-6.jpg"
+              src="https://i.ibb.co/67CrdJd0/Bosch-Alternator-in-Garage-Workshop.png"
               alt="Nature 6"
               className={imageClass}
             />
@@ -161,7 +161,7 @@ const Slider = () => {
           >
             <span className={badgeClass}>New Arrival</span>
             <img
-              src="https://swiperjs.com/demos/images/nature-7.jpg"
+              src="https://i.ibb.co/jvStrFRB/Elegance-in-Simplicity-Ballpoint-Pen.png"
               alt="Nature 7"
               className={imageClass}
             />
@@ -174,7 +174,7 @@ const Slider = () => {
           >
             <span className={badgeClass}>20% OFF</span>
             <img
-              src="https://swiperjs.com/demos/images/nature-8.jpg"
+              src="https://i.ibb.co/7xX2yP7n/Stainless-Steel-Refrigerator-on-Gray-Background.png"
               alt="Nature 8"
               className={imageClass}
             />
@@ -187,7 +187,7 @@ const Slider = () => {
           >
             <span className={badgeClass}>Clearance</span>
             <img
-              src="https://swiperjs.com/demos/images/nature-9.jpg"
+              src="https://i.ibb.co/5WJHgdFY/Cordless-Drill-on-Gray-Background.png"
               alt="Nature 9"
               className={imageClass}
             />

@@ -91,10 +91,10 @@ const Testimonials = () => {
               />
               <div>
                 <p className="font-semibold">{t.name}</p>
-                <p className="text-sm text-gray-500">{t.product}</p>
+                <p className="text-sm text-gray-400">{t.product}</p>
               </div>
             </div>
-            <p className="text-gray-700 italic mb-4">“{t.review}”</p>
+            <p className="text-accent italic mb-4">“{t.review}”</p>
             <div className="flex text-yellow-400">
               {[...Array(t.rating)].map((_, i) => (
                 <FaStar key={i} />

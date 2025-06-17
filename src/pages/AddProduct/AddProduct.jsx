@@ -70,7 +70,9 @@ const AddProduct = () => {
         </div>
         <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
           <div className="form-control">
-            <label className="label font-semibold">Product Image</label>
+            <label className="label font-semibold text-accent">
+              Product Image
+            </label>
             <input
               type="url"
               placeholder="Product Image"
@@ -83,7 +85,9 @@ const AddProduct = () => {
           </div>
 
           <div className="form-control">
-            <label className="label font-semibold">Product Name</label>
+            <label className="label font-semibold text-accent">
+              Product Name
+            </label>
             <input
               type="text"
               placeholder="Product Name"
@@ -97,7 +101,9 @@ const AddProduct = () => {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
             <div className="form-control">
-              <label className="label font-semibold">Main Quantity</label>
+              <label className="label font-semibold text-accent">
+                Main Quantity
+              </label>
               <input
                 type="number"
                 placeholder="Main Quantity"
@@ -114,7 +120,7 @@ const AddProduct = () => {
             </div>
 
             <div className="form-control">
-              <label className="label font-semibold">
+              <label className="label font-semibold text-accent">
                 Minimum Selling Quantity
               </label>
               <input
@@ -133,7 +139,9 @@ const AddProduct = () => {
             </div>
 
             <div className="form-control">
-              <label className="label font-semibold">Brand Name</label>
+              <label className="label font-semibold text-accent">
+                Brand Name
+              </label>
               <input
                 type="text"
                 placeholder="Brand Name"
@@ -146,7 +154,9 @@ const AddProduct = () => {
             </div>
 
             <div className="form-control">
-              <label className="label font-semibold">Price per Unit</label>
+              <label className="label font-semibold text-accent">
+                Price per Unit
+              </label>
               <input
                 type="number"
                 placeholder="Price per Unit"
@@ -159,7 +169,9 @@ const AddProduct = () => {
             </div>
 
             <div className="form-control">
-              <label className="label font-semibold">Rating (1–5)</label>
+              <label className="label font-semibold text-accent">
+                Rating (1–5)
+              </label>
               <br />
               <input
                 type="number"
@@ -179,7 +191,9 @@ const AddProduct = () => {
             </div>
 
             <div className="form-control">
-              <label className="label font-semibold">Category</label>
+              <label className="label font-semibold text-accent">
+                Category
+              </label>
               <br />
               <select
                 {...register("category", { required: "Category is required" })}
@@ -206,7 +220,9 @@ const AddProduct = () => {
           </div>
 
           <div className="form-control">
-            <label className="label font-semibold">Short Description</label>
+            <label className="label font-semibold text-accent">
+              Short Description
+            </label>
             <textarea
               placeholder="Short Description"
               {...register("description", {

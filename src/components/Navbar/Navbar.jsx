@@ -95,7 +95,7 @@ const Navbar = () => {
             <p className="hidden md:block text-xl md:text-2xl">TradePort</p>
           </div>
         </div>
-        <div className="navbar-center bg-secondary rounded-4xl px-4 hidden lg:flex ">
+        <div className="navbar-center bg-secondary rounded-4xl px-4 hidden lg:flex">
           <ul className="menu menu-horizontal px-1 gap-5">
             <li>
               <NavLink
@@ -171,17 +171,20 @@ const Navbar = () => {
             </li>
           </ul>
         </div>
-        <div>
+        <div className="hidden lg:flex lg:ml-5">
           <ThemeToggle></ThemeToggle>
         </div>
         <div className="navbar-end hidden md:flex">
+          <div className="lg:hidden mr-4">
+            <ThemeToggle></ThemeToggle>
+          </div>
           {user ? (
             <div className="relative menu-horizontal gap-3">
               {/* Avatar Button */}
-              <div id="clickable">
+              <div id="clickable" className=" flex justify-between items-center rounded-full">
                 <button>
                   <img
-                    className="w-10 h-10 rounded-full"
+                    className="w-10 rounded-full"
                     src={user.photoURL}
                     alt="User Avatar"
                   />
@@ -228,6 +231,9 @@ const Navbar = () => {
               </NavLink>
             </div>
           )}
+        </div>
+        <div className="navbar-end md:hidden">
+          <ThemeToggle></ThemeToggle>
         </div>
       </div>
     </>

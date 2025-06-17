@@ -6,7 +6,7 @@ const ThemeToggle = () => {
   const { theme, toggleTheme } = use(ThemeContext);
 
   return (
-    <button onClick={toggleTheme} className="btn btn-circle btn-outline">
+    <button onClick={toggleTheme} className="btn btn-circle btn-primary btn-outline dark:btn-secondary">
       {theme === "light" ? <FaMoon /> : <FaSun className="text-yellow-400" />}
     </button>
   );

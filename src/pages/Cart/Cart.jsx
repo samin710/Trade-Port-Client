@@ -102,10 +102,10 @@ const Cart = () => {
                   </figure>
                   <div className="card-body">
                     <h2 className="card-title">{item.productDetails.name}</h2>
-                    <p className="text-sm text-gray-500 mb-1">
+                    <p className="text-sm text-accent mb-1">
                       {item.productDetails.brand}
                     </p>
-                    <p className="badge badge-secondary capitalize text-black">
+                    <p className="badge badge-secondary text-gray-700 capitalize ">
                       {item.productDetails.category}
                     </p>
                     <p>

@@ -55,7 +55,7 @@ const SignIn = () => {
       >
         <div className="flex justify-center items-center min-h-screen">
           <div
-            className="card bg-base-100 md:w-3/9 w-5/6 shrink-0 shadow-2xl p-2"
+            className="card  md:w-3/9 w-5/6 shrink-0 shadow-2xl p-2"
             style={{ boxShadow: "0 0 50px rgba(0, 119, 182, .6)" }}
           >
             <div className="border border-secondary rounded-md">
@@ -104,7 +104,7 @@ const SignIn = () => {
                   <button className="relative py-2 overflow-hidden font-medium text-primary  border border-primary rounded-l-full rounded-r-full shadow-inner group md:text-lg cursor-pointer">
                     <span className="absolute top-0 left-0 w-0 h-0 transition-all duration-200 border-t-2 border-secondary group-hover:w-full ease"></span>
                     <span className="absolute bottom-0 right-0 w-0 h-0 transition-all duration-200 border-b-2 border-secondary group-hover:w-full ease"></span>
-                    <span className="absolute top-0 left-0 w-full h-0 transition-all duration-300  bg-secondary group-hover:h-full ease"></span>
+                    <span className="absolute top-0 left-0 w-full h-0 transition-all duration-300  bg-secondary group-hover:h-full ease"></span>  
                     <span className="absolute bottom-0 left-0 w-full h-0 transition-all duration-300 bg-secondary  group-hover:h-full ease"></span>
                     <span className="absolute inset-0 w-full h-full duration-300 bg-primary opacity-0 group-hover:opacity-100"></span>
                     <span className="relative transition-colors duration-300  group-hover:text-white ease">

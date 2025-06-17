@@ -26,28 +26,28 @@ const WhyChooseUs = () => {
         <div className="rounded-2xl shadow-2xl border border-secondary p-6 text-center transition-transform duration-300 ease-in-out hover:scale-115 shadow-secondary">
           <FaShieldAlt className="text-4xl text-primary mb-4 mx-auto" />
           <h4 className="text-lg font-semibold mb-2">Secure Transactions</h4>
-          <p className="text-gray-600 text-sm">
+          <p className="text-accent text-sm">
             Your payments are protected with encrypted technology.
           </p>
         </div>
         <div className="rounded-2xl shadow-2xl border border-secondary p-6 text-center transition-transform duration-300 ease-in-out hover:scale-115 shadow-secondary">
           <FaUserCheck className="text-4xl text-primary mb-4 mx-auto" />
           <h4 className="text-lg font-semibold mb-2">Verified Sellers</h4>
-          <p className="text-gray-600 text-sm">
+          <p className="text-accent text-sm">
             Only authentic and trusted sellers are listed.
           </p>
         </div>
         <div className="rounded-2xl shadow-2xl border border-secondary p-6 text-center transition-transform duration-300 ease-in-out hover:scale-115 shadow-secondary">
           <FaTruck className="text-4xl text-primary mb-4 mx-auto" />
           <h4 className="text-lg font-semibold mb-2">Fast Delivery</h4>
-          <p className="text-gray-600 text-sm">
+          <p className="text-accent text-sm">
             Receive your products quickly with our reliable logistics.
           </p>
         </div>
         <div className="rounded-2xl shadow-2xl border border-secondary p-6 text-center transition-transform duration-300 ease-in-out hover:scale-115 shadow-secondary">
           <FaHeadset className="text-4xl text-primary mb-4 mx-auto" />
           <h4 className="text-lg font-semibold mb-2">24/7 Support</h4>
-          <p className="text-gray-600 text-sm">
+          <p className="text-accent text-sm">
             We're here to help you anytime, anywhere.
           </p>
         </div>

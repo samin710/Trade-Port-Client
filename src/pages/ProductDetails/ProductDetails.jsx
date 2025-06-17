@@ -162,7 +162,7 @@ const ProductDetails = () => {
               </GradientText>
             </h1>
 
-            <div className="badge badge-secondary text-accent py-3 px-4">
+            <div className="badge badge-secondary capitalize text-accent dark:text-gray-300 py-3 px-4">
               {category}
             </div>
 
@@ -189,7 +189,7 @@ const ProductDetails = () => {
               {[...Array(Math.round(rating))].map((_, idx) => (
                 <FaStar key={idx} />
               ))}
-              <span className="ml-1 text-sm text-gray-500">({rating})</span>
+              <span className="ml-1 text-sm text-accent">({rating})</span>
             </div>
 
             <p className="text-accent pt-3">
@@ -221,12 +221,26 @@ const ProductDetails = () => {
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.9, opacity: 0 }}
               transition={{ duration: 0.4 }}
-              className="fixed inset-0 z-50 backdrop-blur-sm bg-secondary/30 flex items-center justify-center"
+              className="fixed inset-0 z-50 backdrop-blur-sm bg-secondary/30 dark:bg-base-100/30 flex items-center justify-center"
             >
               <>
-                <div className="bg-white p-8 rounded-2xl md:w-full max-w-lg shadow-xl space-y-6 border border-primary">
+                <div className="bg-white dark:bg-base-100 p-8 rounded-2xl md:w-full max-w-lg shadow-xl space-y-6 border border-primary">
                   <h2 className="text-2xl font-bold text-center text-primary">
-                    Checkout Product
+                    <GradientText
+                      colors={[
+                        "#40ffaa",
+                        "#4079ff",
+                        "#40ffaa",
+                        "#4079ff",
+                        "#40ffaa",
+                        "#0077B6",
+                      ]}
+                      animationSpeed={5}
+                      showBorder={false}
+                      className="custom-class"
+                    >
+                      Checkout Product
+                    </GradientText>
                   </h2>
 
                   <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">

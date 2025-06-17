@@ -53,7 +53,7 @@ const Update = () => {
       .catch((error) => {
         console.log(error);
       });
-    navigate("/");
+    navigate("/allProducts");
   };
 
   return (

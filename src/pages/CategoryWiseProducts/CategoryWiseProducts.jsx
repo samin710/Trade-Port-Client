@@ -10,6 +10,7 @@ const CategoryWiseProducts = () => {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
   useEffect(() => {
+    document.title = "TradePort | CategoryWiseProducts";
     axios
       .get(
         `https://b2b-wholesale-platform-server.vercel.app/products/category/${category}`

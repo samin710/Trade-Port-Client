@@ -125,6 +125,9 @@ const AllProducts = () => {
                             Available Quantity
                           </th>
                           <th className="py-4 px-6 text-left text-sm font-semibold uppercase tracking-wider">
+                            Minimum Selling Quantity
+                          </th>
+                          <th className="py-4 px-6 text-left text-sm font-semibold uppercase tracking-wider">
                             Action
                           </th>
                         </tr>

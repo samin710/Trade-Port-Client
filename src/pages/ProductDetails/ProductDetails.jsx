@@ -42,10 +42,11 @@ const ProductDetails = () => {
   const [availableQuantity, setAvailableQuantity] = useState(0);
 
   useEffect(() => {
+    document.title = `TradePort | Details of ${name}`;
     if (main_quantity) {
       setAvailableQuantity(main_quantity);
     }
-  }, [main_quantity]);
+  }, [main_quantity, name]);
   const [quantity, setQuantity] = useState(0);
 
   const {
@@ -107,7 +108,6 @@ const ProductDetails = () => {
           setShowModal(false);
         })
         .catch((error) => {
-          console.error(error);
           toast.error("Something went wrong!");
         });
     }

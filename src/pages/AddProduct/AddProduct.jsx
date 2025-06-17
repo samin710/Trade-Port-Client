@@ -77,14 +77,14 @@ const AddProduct = () => {
               type="url"
               placeholder="Product Image"
               {...register("image", { required: "Image URL is required" })}
-              className="input w-full focus:outline-none focus:border-primary"
+              className="input w-full focus:outline-none focus:border-primary transition-all duration-500 ease-in-out"
             />
             {errors.image && (
               <p className="text-red-500 text-sm">{errors.image.message}</p>
             )}
           </div>
 
-          <div className="form-control">
+          <div className="form-control ">
             <label className="label font-semibold text-accent">
               Product Name
             </label>
@@ -92,7 +92,7 @@ const AddProduct = () => {
               type="text"
               placeholder="Product Name"
               {...register("name", { required: "Product name is required" })}
-              className="input w-full focus:outline-none focus:border-primary"
+              className="input w-full focus:outline-none focus:border-primary transition-all duration-500 ease-in-out"
             />
             {errors.name && (
               <p className="text-red-500 text-sm">{errors.name.message}</p>
@@ -110,7 +110,7 @@ const AddProduct = () => {
                 {...register("main_quantity", {
                   required: "Main quantity is required",
                 })}
-                className="input focus:outline-none focus:border-primary"
+                className="input focus:outline-none focus:border-primary transition-all duration-500 ease-in-out"
               />
               {errors.main_quantity && (
                 <p className="text-red-500 text-sm">
@@ -129,7 +129,7 @@ const AddProduct = () => {
                 {...register("min_selling_quantity", {
                   required: "Minimum quantity is required",
                 })}
-                className="input focus:outline-none focus:border-primary"
+                className="input focus:outline-none focus:border-primary transition-all duration-500 ease-in-out"
               />
               {errors.min_selling_quantity && (
                 <p className="text-red-500 text-sm">
@@ -146,7 +146,7 @@ const AddProduct = () => {
                 type="text"
                 placeholder="Brand Name"
                 {...register("brand", { required: "Brand name is required" })}
-                className="input focus:outline-none focus:border-primary"
+                className="input focus:outline-none focus:border-primary transition-all duration-500 ease-in-out"
               />
               {errors.brand && (
                 <p className="text-red-500 text-sm">{errors.brand.message}</p>
@@ -161,7 +161,7 @@ const AddProduct = () => {
                 type="number"
                 placeholder="Price per Unit"
                 {...register("price", { required: "Price is required" })}
-                className="input focus:outline-none focus:border-primary"
+                className="input focus:outline-none focus:border-primary transition-all duration-500 ease-in-out"
               />
               {errors.price && (
                 <p className="text-red-500 text-sm">{errors.price.message}</p>
@@ -183,7 +183,7 @@ const AddProduct = () => {
                   min: { value: 1, message: "Minimum rating is 1" },
                   max: { value: 5, message: "Maximum rating is 5" },
                 })}
-                className="input focus:outline-none focus:border-primary"
+                className="input focus:outline-none focus:border-primary transition-all duration-500 ease-in-out"
               />
               {errors.rating && (
                 <p className="text-red-500 text-sm">{errors.rating.message}</p>
@@ -197,7 +197,7 @@ const AddProduct = () => {
               <br />
               <select
                 {...register("category", { required: "Category is required" })}
-                className="select select-bordered focus:outline-none focus:border-primary"
+                className="select select-bordered focus:outline-none focus:border-primary transition-all duration-500 ease-in-out"
                 defaultValue=""
               >
                 <option value="" disabled>
@@ -228,7 +228,7 @@ const AddProduct = () => {
               {...register("description", {
                 required: "Description is required",
               })}
-              className="textarea focus:outline-none focus:border-primary w-full"
+              className="textarea focus:outline-none focus:border-primary w-full transition-all duration-500 ease-in-out"
               rows="5"
             ></textarea>
             {errors.description && (
@@ -240,16 +240,16 @@ const AddProduct = () => {
 
           <button
             type="submit"
-            className="btn btn-primary dark:btn-secondary dark:text-base-100 w-full mt-4 transition-all hover:scale-105"
+            className="btn btn-primary dark:btn-secondary dark:text-base-100 w-full mt-4 hover:scale-105 transition-all duration-500 ease-in-out"
           >
             Add Product
           </button>
 
-          <div className="md:mt-10 mt-5 p-4 rounded-lg bg-secondary dark:bg-secondary/10 border  border-secondary">
+          <div className="md:mt-10 mt-5 p-4 rounded-lg bg-secondary dark:bg-secondary/10 border  border-secondary ">
             <h3 className="text-lg font-semibold mb-2 dark:text-accent">
               Product Content
             </h3>
-            <p className="text-accent dark:text-gray-400">
+            <p className="text-accent dark:text-gray-400 transition-all duration-500 ease-in-out">
               Make sure all product details are accurate and up-to-date. This
               helps buyers make confident purchasing decisions and enhances the
               visibility of your product on the platform.

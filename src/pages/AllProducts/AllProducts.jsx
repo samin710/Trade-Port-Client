@@ -70,7 +70,7 @@ const AllProducts = () => {
               </button>
 
               <select
-                className="select select-bordered max-w-xs focus:outline-none focus:border-primary dark:focus:border-secondary dark:border-secondary border-primary dark:text-accent"
+                className="select select-bordered max-w-xs focus:outline-none focus:border-primary dark:focus:border-secondary dark:border-secondary border-primary dark:text-accent transition-all duration-500 ease-in-out"
                 defaultValue={""}
                 onChange={(e) => setViewMode(e.target.value)}
               >
@@ -106,8 +106,8 @@ const AllProducts = () => {
                   transition={{ duration: 0.4 }}
                 >
                   <div className="overflow-x-auto rounded-xl shadow-lg shadow-secondary border border-secondary mt-4 md:mt-9">
-                    <table className="min-w-full ">
-                      <thead className="bg-gradient-to-b from-primary dark:from-secondary to-secondary dark:to-base-100 text-white">
+                    <table className="min-w-full">
+                      <thead className="bg-gradient-to-b from-primary dark:from-secondary to-secondary dark:to-base-100 transition-all duration-500 ease-in-out">
                         <tr>
                           <th className="py-4 px-6 text-left text-sm font-semibold uppercase tracking-wider">
                             Image
@@ -132,7 +132,7 @@ const AllProducts = () => {
                           </th>
                         </tr>
                       </thead>
-                      <tbody className="divide-y divide-gray-100">
+                      <tbody className="divide-y divide-gray-100 ">
                         {filteredProducts.map((product) => (
                           <ProductTableView
                             key={product._id}

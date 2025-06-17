@@ -6,6 +6,11 @@
 * {
   font-family: "Montserrat", sans-serif;
 }
+html {
+  transition-property: all;
+  transition-duration: 500ms;
+  transition-timing-function: ease-in-out;
+}
 @plugin "daisyui/theme" {
   name: "light";
   default: true;

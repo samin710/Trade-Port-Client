@@ -89,7 +89,7 @@ const Update = () => {
               <input
                 type="url"
                 {...register("image")}
-                className="input w-full focus:outline-none focus:border-primary"
+                className="input w-full focus:outline-none focus:border-primary transition-all duration-500 ease-in-out"
               />
               {errors.image && (
                 <p className="text-red-500 text-sm">{errors.image.message}</p>
@@ -103,7 +103,7 @@ const Update = () => {
               <input
                 type="text"
                 {...register("name")}
-                className="input w-full focus:outline-none focus:border-primary"
+                className="input w-full focus:outline-none focus:border-primary transition-all duration-500 ease-in-out"
               />
               {errors.name && (
                 <p className="text-red-500 text-sm">{errors.name.message}</p>
@@ -118,7 +118,7 @@ const Update = () => {
                 <input
                   type="number"
                   {...register("main_quantity")}
-                  className="input focus:outline-none focus:border-primary"
+                  className="input focus:outline-none focus:border-primary transition-all duration-500 ease-in-out"
                 />
                 {errors.main_quantity && (
                   <p className="text-red-500 text-sm">
@@ -134,7 +134,7 @@ const Update = () => {
                 <input
                   type="number"
                   {...register("min_selling_quantity")}
-                  className="input focus:outline-none focus:border-primary"
+                  className="input focus:outline-none focus:border-primary transition-all duration-500 ease-in-out"
                 />
                 {errors.min_selling_quantity && (
                   <p className="text-red-500 text-sm">
@@ -150,7 +150,7 @@ const Update = () => {
                 <input
                   type="text"
                   {...register("brand")}
-                  className="input focus:outline-none focus:border-primary"
+                  className="input focus:outline-none focus:border-primary transition-all duration-500 ease-in-out"
                 />
                 {errors.brand && (
                   <p className="text-red-500 text-sm">{errors.brand.message}</p>
@@ -167,7 +167,7 @@ const Update = () => {
                   min="1"
                   max="5"
                   {...register("rating")}
-                  className="input focus:outline-none focus:border-primary"
+                  className="input focus:outline-none focus:border-primary transition-all duration-500 ease-in-out"
                 />
                 {errors.rating && (
                   <p className="text-red-500 text-sm">
@@ -183,7 +183,7 @@ const Update = () => {
                 <br />
                 <select
                   {...register("category")}
-                  className="select select-bordered focus:outline-none focus:border-primary"
+                  className="select select-bordered focus:outline-none focus:border-primary transition-all duration-500 ease-in-out"
                 >
                   <option value="" disabled>
                     Select a Category
@@ -210,7 +210,7 @@ const Update = () => {
               </label>
               <textarea
                 {...register("description")}
-                className="textarea focus:outline-none focus:border-primary w-full"
+                className="textarea focus:outline-none focus:border-primary w-full transition-all duration-500 ease-in-out"
                 rows="5"
               ></textarea>
               {errors.description && (
@@ -222,7 +222,7 @@ const Update = () => {
 
             <button
               type="submit"
-              className="btn btn-primary dark:btn-secondary dark:text-base-100 w-full md:mt-4 transition-all hover:scale-105"
+              className="btn btn-primary dark:btn-secondary dark:text-base-100 w-full md:mt-4 hover:scale-105  transition-all duration-500 ease-in-out"
             >
               Update Product
             </button>

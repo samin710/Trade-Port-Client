@@ -95,80 +95,80 @@ const Navbar = () => {
             <p className="hidden md:block text-xl md:text-2xl">TradePort</p>
           </div>
         </div>
-        <div className="navbar-center bg-secondary rounded-4xl px-4 hidden lg:flex">
-          <ul className="menu menu-horizontal px-1 gap-5">
-            <li>
+        <div className="navbar-center bg-secondary rounded-4xl px-4 hidden lg:flex transition-all duration-500 ease-in-out">
+          <ul className="menu menu-horizontal px-1 gap-8 items-center p-4">
+            <div>
               <NavLink
                 to={"/"}
                 className={({ isActive }) =>
                   isActive
-                    ? " text-primary font-medium border-b-4 border-b-primary dark:border-b-base-100 dark:text-base-100"
+                    ? " text-primary font-medium border-b-4 border-b-primary dark:border-b-base-100 dark:text-base-100 py-1"
                     : " font-medium"
                 }
               >
                 Home
               </NavLink>
-            </li>
-            <li>
+            </div>
+            <div>
               <NavLink
                 to={"/categories"}
                 className={({ isActive }) =>
                   isActive
-                    ? " text-primary font-medium border-b-4 border-b-primary dark:border-b-base-100 dark:text-base-100"
+                    ? " text-primary font-medium border-b-4 border-b-primary dark:border-b-base-100 dark:text-base-100 py-1"
                     : " font-medium "
                 }
               >
                 Categories
               </NavLink>
-            </li>
-            <li>
+            </div>
+            <div>
               <NavLink
                 to={"/allProducts"}
                 className={({ isActive }) =>
                   isActive
-                    ? " text-primary font-medium border-b-4 border-b-primary dark:border-b-base-100 dark:text-base-100"
+                    ? " text-primary font-medium border-b-4 border-b-primary dark:border-b-base-100 dark:text-base-100 py-1"
                     : " font-medium "
                 }
               >
                 All products
               </NavLink>
-            </li>
-            <li>
+            </div>
+            <div>
               <NavLink
                 to={"/addProduct"}
                 className={({ isActive }) =>
                   isActive
-                    ? " text-primary font-medium border-b-4 border-b-primary dark:border-b-base-100 dark:text-base-100"
+                    ? " text-primary font-medium border-b-4 border-b-primary dark:border-b-base-100 dark:text-base-100 py-1"
                     : " font-medium "
                 }
               >
                 Add Product
               </NavLink>
-            </li>
-            <li>
+            </div>
+            <div>
               <NavLink
                 to={"/myProducts"}
                 className={({ isActive }) =>
                   isActive
-                    ? "text-primary font-medium border-b-4 border-b-primary dark:border-b-base-100 dark:text-base-100"
+                    ? "text-primary font-medium border-b-4 border-b-primary dark:border-b-base-100 dark:text-base-100 py-1"
                     : " font-medium"
                 }
               >
                 My products
               </NavLink>
-            </li>
-            <li>
+            </div>
+            <div>
               <NavLink
                 to={"/cart"}
                 className={({ isActive }) =>
                   isActive
-                    ? " text-primary font-medium border-b-4 border-b-primary dark:border-b-base-100 dark:text-base-100"
+                    ? " text-primary font-medium border-b-4 border-b-primary dark:border-b-base-100 dark:text-base-100 py-1"
                     : " font-medium "
                 }
               >
                 Cart
               </NavLink>
-            </li>
+            </div>
           </ul>
         </div>
         <div className="hidden lg:flex lg:ml-5">

@@ -1,12 +1,51 @@
-# React + Vite
+Website name: TradePort
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Live site URL: https://b2b-wholesale-platform-57595.web.app/
 
-Currently, two official plugins are available:
+Features:
+🎯 Users can add products after login.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+🎯 Users get informed about discounts in the banner section.
 
-## Expanding the ESLint configuration
+🎯 Users get browse through every category and see the details about a particular product.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+🎯 Users get informed about discounts in the banner section.
+
+🎯 Users can buy any product, but:
+      👍 They have to purchase it at the minimum selling quantity.
+      👍 They cannot exceed the available quantity while purchasing.
+
+🎯 Users get see the product in both card and table format.
+
+🎯 Available section only contains the products which's minimum selling quantity is more than 100.
+
+🎯 Any user can edit any product.
+
+🎯 Only user can delete only his or her posted products not others.
+
+🎯 Users must be logged in to:
+      👍 Add new product.
+      👍 View all products.
+      👍 View their own products.
+      👍 View their own cart.
+
+🎯 Users can see their own purchased product in cart page and from there they can delete any of their purchase product, this increases the main available quantity of that product which the users delete form their cart page by the deleted amount .
+
+🎯 A theme toggle button switches the UI between dark and light modes.
+
+
+🎯 Used npm packages are:
+      👍 @tailwindcss/vite
+      👍 animate.css
+      👍 axios
+      👍 firebase
+      👍 framer-motion
+      👍 lottie-react 
+      👍 motion
+      👍 react-hook-form
+      👍 react-icon
+      👍 react-router
+      👍 react-toastify
+      👍 react-tooltip
+      👍 react
+      👍 swiper

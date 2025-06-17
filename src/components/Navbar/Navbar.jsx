@@ -48,38 +48,38 @@ const Navbar = () => {
             </div>
             <ul
               tabIndex={0}
-              className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
+              className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow border dark:border-secondary border-primary space-y-2"
             >
-              <li>
+              <div className="p-2 rounded-lg text-center dark:border-secondary border-primary border cursor-pointer">
                 <NavLink to={"/"}>Home</NavLink>
-              </li>
-              <li>
+              </div>
+              <div className="p-2 rounded-lg text-center dark:border-secondary border-primary border cursor-pointer">
                 <NavLink to={"/categories"}>Categories</NavLink>
-              </li>
-              <li>
+              </div>
+              <div className="p-2 rounded-lg text-center dark:border-secondary border-primary border cursor-pointer">
                 <NavLink to={"/allProducts"}>All products</NavLink>
-              </li>
-              <li>
+              </div>
+              <div className="p-2 rounded-lg text-center dark:border-secondary border-primary border cursor-pointer">
                 <NavLink to={"/addProduct"}>Add Product</NavLink>
-              </li>
-              <li>
+              </div>
+              <div className="p-2 rounded-lg text-center dark:border-secondary border-primary border cursor-pointer">
                 <NavLink to={"/myProducts"}>My products</NavLink>
-              </li>
-              <li>
+              </div>
+              <div className="p-2 rounded-lg text-center dark:border-secondary border-primary border cursor-pointer">
                 <NavLink to={"/cart"}>Cart</NavLink>
-              </li>
+              </div>
               {user ? (
                 <div className="p-2 rounded-lg text-center bg-secondary cursor-pointer">
                   <button onClick={handleLogout}>SignOut</button>
                 </div>
               ) : (
-                <div className="">
-                  <li>
+                <div className="space-y-2">
+                  <div className="p-2 rounded-lg text-center bg-secondary cursor-pointer">
                     <NavLink to={"/signIn"}>SignIn</NavLink>
-                  </li>
-                  <li>
+                  </div>
+                  <div className="p-2 rounded-lg text-center bg-secondary cursor-pointer">
                     <NavLink to={"/signUp"}>SignUp</NavLink>
-                  </li>
+                  </div>
                 </div>
               )}
             </ul>
@@ -215,7 +215,7 @@ const Navbar = () => {
                 className={({ isActive }) =>
                   isActive
                     ? "bg-primary text-white font-medium btn "
-                    : "border-b-4 border-b-primary border-secondary text-primary font-medium btn "
+                    : "border-b-4 btn-primary dark:btn-secondary btn-outline border-b-primary dark:border-b-secondary dark:text-secondary border-secondary dark:hover:text-base-100 font-medium btn"
                 }
                 to={"/signIn"}
               >
@@ -226,7 +226,7 @@ const Navbar = () => {
                 className={({ isActive }) =>
                   isActive
                     ? "bg-primary text-white font-medium btn "
-                    : "border-b-4 border-b-primary border-secondary text-primary font-medium btn "
+                    : "border-b-4 btn-primary dark:btn-secondary btn-outline border-b-primary dark:border-b-secondary dark:text-secondary border-secondary dark:hover:text-base-100 font-medium btn"
                 }
                 to={"/signUp"}
               >

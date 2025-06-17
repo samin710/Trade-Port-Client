@@ -46,6 +46,19 @@ const SignIn = () => {
       });
   };
 
+  const currentTheme =
+    localStorage.getItem("theme") ||
+    document.documentElement.getAttribute("data-theme") ||
+    (window.matchMedia("(prefers-color-scheme: dark)").matches
+      ? "dark"
+      : "light");
+
+
+  const cardShadow =
+    currentTheme === "dark"
+      ? "0 0 40px rgba(255, 50, 140, 0.6)"
+      : "0 0 40px rgba(0, 119, 182, .6)"; 
+
   return (
     <>
       <motion.div
@@ -56,7 +69,7 @@ const SignIn = () => {
         <div className="flex justify-center items-center min-h-screen">
           <div
             className="card  md:w-3/9 w-5/6 shrink-0 shadow-2xl p-2"
-            style={{ boxShadow: "0 0 50px rgba(0, 119, 182, .6)" }}
+            style={{ boxShadow: cardShadow }}
           >
             <div className="border border-secondary rounded-md">
               {" "}
@@ -101,34 +114,37 @@ const SignIn = () => {
                   <div>
                     <p className="link link-hover">Forgot password?</p>
                   </div>
-                  <button className="relative py-2 overflow-hidden font-medium text-primary  border border-primary rounded-l-full rounded-r-full shadow-inner group md:text-lg cursor-pointer">
+                  <button className="relative py-2 overflow-hidden font-medium text-primary dark:text-secondary  border border-primary dark:border-secondary rounded-l-full rounded-r-full shadow-inner group md:text-lg cursor-pointer">
                     <span className="absolute top-0 left-0 w-0 h-0 transition-all duration-200 border-t-2 border-secondary group-hover:w-full ease"></span>
-                    <span className="absolute bottom-0 right-0 w-0 h-0 transition-all duration-200 border-b-2 border-secondary group-hover:w-full ease"></span>
-                    <span className="absolute top-0 left-0 w-full h-0 transition-all duration-300  bg-secondary group-hover:h-full ease"></span>  
-                    <span className="absolute bottom-0 left-0 w-full h-0 transition-all duration-300 bg-secondary  group-hover:h-full ease"></span>
-                    <span className="absolute inset-0 w-full h-full duration-300 bg-primary opacity-0 group-hover:opacity-100"></span>
-                    <span className="relative transition-colors duration-300  group-hover:text-white ease">
+                    <span className="absolute bottom-0 right-0 w-0 h-0 transition-all duration-300 border-b-2 border-secondary group-hover:w-full ease"></span>
+                    <span className="absolute top-0 left-0 w-full h-0 transition-all duration-300  bg-secondary group-hover:h-full ease dark:bg-base-100"></span>
+                    <span className="absolute bottom-0 left-0 w-full h-0 transition-all duration-300 bg-secondary dark:bg-base-100  group-hover:h-full ease"></span>
+                    <span className="absolute inset-0 w-full h-full duration-300  bg-primary dark:bg-secondary opacity-0 group-hover:opacity-100"></span>
+                    <span className="relative transition-colors duration-300 dark:group-hover:text-base-100  group-hover:text-white ease">
                       SignIn
                     </span>
                   </button>
-                  <fieldset className="fieldset border-primary rounded-box border p-4">
+                  <fieldset className="fieldset border-primary dark:border-secondary rounded-box border p-4">
                     <legend className="fieldset-legend text-sm text-accent">
                       Other SignIn options
                     </legend>
                     <p
                       onClick={handleGoogleSignIn}
-                      className="btn btn-primary btn-outline w-full"
+                      className="btn btn-primary btn-outline dark:btn-secondary w-full"
                     >
                       <FcGoogle size={24} /> SignIn with Google
                     </p>
-                    <p className="btn btn-outline btn-primary w-full">
+                    <p className="btn btn-outline btn-primary dark:btn-secondary w-full">
                       <FaGithub size={24} className="text-black" /> SignIn with
                       Github
                     </p>
                   </fieldset>
                   <p className="font-semibold text-center pt-4">
                     Don't have an account?<span> </span>
-                    <Link className="text-primary" to={"/signUp"}>
+                    <Link
+                      className="text-primary dark:text-secondary"
+                      to={"/signUp"}
+                    >
                       SignUp
                     </Link>
                   </p>

@@ -1,51 +1,72 @@
-Website name: TradePort
+# 🛒 TradePort
 
-Live site URL: https://b2b-wholesale-platform-57595.web.app/
+<!--![TradePort Screenshot](https://your-image-url.com)--> <!-- Replace this with your screenshot URL -->
 
-Features:
-🎯 Users can add products after login.
+## 🔗 Live Website  
+👉 [TradePort Live](https://b2b-wholesale-platform-57595.web.app/)
 
-🎯 Users get informed about discounts in the banner section.
+---
 
-🎯 Users get browse through every category and see the details about a particular product.
+## 🧠 Overview
 
-🎯 Users get informed about discounts in the banner section.
+**TradePort** is a modern B2B e-commerce platform that allows authenticated users to add, browse, and manage products. Users can purchase items with quantity restrictions, see products in both card and table formats, and get notified about discounts via banner highlights. Product listings are categorized, and a dedicated "Available" section highlights bulk-purchasable products. While all users can edit products, deletion is limited to the original uploader. The cart system tracks purchases and dynamically adjusts stock when items are removed. The app also features a dark/light mode toggle for enhanced user experience.
 
-🎯 Users can buy any product, but:
-      👍 They have to purchase it at the minimum selling quantity.
-      👍 They cannot exceed the available quantity while purchasing.
+---
 
-🎯 Users get see the product in both card and table format.
+## 🔥 Technologies Used
 
-🎯 Available section only contains the products which's minimum selling quantity is more than 100.
+- **React 19** – Frontend framework  
+- **Vite** – Development build tool  
+- **Tailwind CSS + DaisyUI** – Styling and UI components  
+- **React Router v7** – Client-side routing  
+- **Firebase** – Authentication and backend services  
+- **Framer Motion** – Smooth animations  
+- **Lottie React** – Animation integration  
+- **React Toastify** – Toast notifications  
+- **Animate.css** – CSS animations  
+- **Axios** – API requests  
+- **Swiper** – Carousel/slider  
+- **React Hook Form** – Form validation and handling  
+- **React Tooltip** – Tooltips for UI hints  
+- **React Intersection Observer** – Scroll-triggered animations  
 
-🎯 Any user can edit any product.
+---
 
-🎯 Only user can delete only his or her posted products not others.
+## 🚀 Key Features
 
-🎯 Users must be logged in to:
-      👍 Add new product.
-      👍 View all products.
-      👍 View their own products.
-      👍 View their own cart.
+- 🛍️ Add, edit (all users), and delete (own) products  
+- 📢 Dynamic discount banners  
+- 🗂️ Browse by category and view product details  
+- ✅ Quantity validation: min selling & available stock enforced  
+- 🧾 Dual product view: card & table  
+- 🛒 Personalized cart with real-time stock update on deletion  
+- 🔒 Auth-required access to product actions and cart  
+- 📦 "Available" filter for high-volume products  
+- 🌙 Toggle between dark and light UI modes  
 
-🎯 Users can see their own purchased product in cart page and from there they can delete any of their purchase product, this increases the main available quantity of that product which the users delete form their cart page by the deleted amount .
+---
 
-🎯 A theme toggle button switches the UI between dark and light modes.
+## 📦 Dependencies
 
-
-🎯 Used npm packages are:
-      👍 @tailwindcss/vite
-      👍 animate.css
-      👍 axios
-      👍 firebase
-      👍 framer-motion
-      👍 lottie-react 
-      👍 motion
-      👍 react-hook-form
-      👍 react-icon
-      👍 react-router
-      👍 react-toastify
-      👍 react-tooltip
-      👍 react
-      👍 swiper
+```json
+{
+  "@tailwindcss/vite": "^4.1.8",
+  "animate.css": "^4.1.1",
+  "axios": "^1.9.0",
+  "firebase": "^11.9.0",
+  "framer-motion": "^12.18.1",
+  "lottie-react": "^2.4.1",
+  "motion": "^12.17.0",
+  "react": "^19.1.0",
+  "react-dom": "^19.1.0",
+  "react-hook-form": "^7.57.0",
+  "react-icon": "^1.0.0",
+  "react-icons": "^5.5.0",
+  "react-intersection-observer": "^9.16.0",
+  "react-router": "^7.6.2",
+  "react-toastify": "^11.0.5",
+  "react-tooltip": "^5.28.1",
+  "swiper": "^11.2.8",
+  "tailwindcss": "^4.1.8"
+}
+```

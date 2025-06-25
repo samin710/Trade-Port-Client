@@ -9,7 +9,7 @@
 
 ## 🧠 Overview
 
-**TradePort** is a modern B2B e-commerce platform that allows authenticated users to add, browse, and manage products. Users can purchase items with quantity restrictions, see products in both card and table formats, and get notified about discounts via banner highlights. Product listings are categorized, and a dedicated "Available" section highlights bulk-purchasable products. While all users can edit products, deletion is limited to the original uploader. The cart system tracks purchases and dynamically adjusts stock when items are removed. The app also features a dark/light mode toggle for enhanced user experience.
+***TradePort*** is a dynamic e-commerce web application where users can browse, buy, and manage products across various categories. Users must log in to access features such as adding new products, viewing all listings, and managing their own cart and posted items. The platform supports product display in both card and table formats, highlights discounts via a banner section, and enforces purchase rules like minimum selling quantity and stock limits. Users can only delete their own products, but editing is open to all. The cart system allows users to remove purchased items, automatically adjusting the product's available stock. The app also includes a theme toggle for dark/light modes and leverages a modern tech stack for an interactive, responsive UI.
 
 ---
 
@@ -70,3 +70,10 @@
   "tailwindcss": "^4.1.8"
 }
 ```
+---
+
+## 🛠 How to Run This Project Locally
+1. Clone the repository
+2. Install dependencies: npm install
+3. Create a .env file in the root directory and add your Firebase configuration (replace placeholders)
+4. npm run dev

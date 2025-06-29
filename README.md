@@ -7,6 +7,11 @@
 
 ---
 
+## 🖇️ Server Link 
+👉 [Server Link](https://github.com/samin710/Trade-Port-Server)
+
+---
+
 ## 🧠 Overview
 
 ***TradePort*** is a dynamic e-commerce web application where users can browse, buy, and manage products across various categories. Users must log in to access features such as adding new products, viewing all listings, and managing their own cart and posted items. The platform supports product display in both card and table formats, highlights discounts via a banner section, and enforces purchase rules like minimum selling quantity and stock limits. Users can only delete their own products, but editing is open to all. The cart system allows users to remove purchased items, automatically adjusting the product's available stock. The app also includes a theme toggle for dark/light modes and leverages a modern tech stack for an interactive, responsive UI.

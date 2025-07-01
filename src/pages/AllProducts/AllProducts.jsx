@@ -23,6 +23,7 @@ const AllProducts = () => {
   const [showAvailableOnly, setShowAvailableOnly] = useState(false);
   const [viewMode, setViewMode] = useState("card");
 
+
   const filteredProducts = showAvailableOnly
     ? products.filter((product) => product.min_selling_quantity > 100)
     : products;
@@ -91,7 +92,7 @@ const AllProducts = () => {
                   exit={{ opacity: 0, y: -20 }}
                   transition={{ duration: 0.4 }}
                 >
-                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                  <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-5">
                     {filteredProducts.map((product) => (
                       <ProductCard key={product._id} product={product} />
                     ))}

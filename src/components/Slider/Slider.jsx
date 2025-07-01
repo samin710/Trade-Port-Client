@@ -185,7 +185,7 @@ const Slider = () => {
             onMouseLeave={handleMouseLeave}
             className={slideClass}
           >
-            <span className={badgeClass}>Clearance</span>
+            <span className={badgeClass}>10% OFF</span>
             <img
               src="https://i.ibb.co/5WJHgdFY/Cordless-Drill-on-Gray-Background.png"
               alt="Nature 9"

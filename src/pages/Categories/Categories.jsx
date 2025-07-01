@@ -15,7 +15,7 @@ const Categories = () => {
         exit={{ opacity: 0 }}
         transition={{ duration: 0.4 }}
       >
-        <h1 className="text-center py-10 text-2xl md:text-4xl">
+        <h1 className="text-center md:my-12 my-5 text-2xl md:text-4xl">
           <GradientText
             colors={[
               "#40ffaa",

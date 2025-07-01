@@ -5,7 +5,7 @@ import GradientText from "../../animations/GradientText/GradientText";
 const WhyChooseUs = () => {
   return (
     <div className="">
-      <h2 className="md:text-4xl text-2xl font-bold text-center pb-10">
+      <h2 className="md:text-4xl text-2xl font-bold text-center md:my-12 my-5">
         <GradientText
           colors={[
             "#40ffaa",

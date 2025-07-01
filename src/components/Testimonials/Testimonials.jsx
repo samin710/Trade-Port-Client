@@ -56,7 +56,7 @@ const Testimonials = () => {
   ];
   return (
     <div className="">
-      <h2 className="text-center pb-10 text-2xl md:text-4xl font-bold">
+      <h2 className="text-center pb-10 text-2xl md:text-4xl font-bold md:my-12 my-5">
         <GradientText
           colors={[
             "#40ffaa",

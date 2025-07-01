@@ -43,7 +43,7 @@ const CategoryWiseProducts = () => {
                     />
                   </figure>
                   <div className="card-body">
-                    <h2 className="card-title">Product name: {product.name}</h2>
+                    <h2 className="card-title">{product.name}</h2>
                     <p>
                       <strong>Brand name:</strong> {product.brand}
                     </p>
@@ -54,7 +54,7 @@ const CategoryWiseProducts = () => {
                       <strong>Minimum quantity for buy:</strong>{" "}
                       {product.min_selling_quantity} units
                     </p>
-                    <p>{product.description}</p>
+                    
                     <p>
                       <strong>Price:</strong> {product.price} BDT
                     </p>

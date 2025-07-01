@@ -26,7 +26,7 @@ const Navbar = () => {
   };
   return (
     <>
-      <div className="navbar my-3 md:my-8 rounded-lg shadow-md shadow-secondary border border-secondary dark:border-secondary/30">
+      <div className="navbar my-5 md:my-12 rounded-lg shadow-md shadow-secondary border border-secondary dark:border-secondary/30">
         <div className="navbar-start">
           <div className="dropdown">
             <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -189,6 +189,7 @@ const Navbar = () => {
                   <img
                     className="w-10 rounded-full"
                     src={user.photoURL}
+                    referrerPolicy="no-referrer"
                     alt="User Avatar"
                   />
                 </button>

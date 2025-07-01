@@ -1,12 +1,11 @@
 import React from "react";
-import { FaStar, FaEdit } from "react-icons/fa";
+import { FaStar } from "react-icons/fa";
 import { Link } from "react-router";
 
 const ProductCard = ({ product }) => {
   const {
     image,
     name,
-    category,
     price,
     rating,
     brand,
@@ -23,13 +22,13 @@ const ProductCard = ({ product }) => {
             <img src={image} alt={name} className=" w-full object-cover" />
           </figure>
           <div className="card-body">
-            <h2 className="card-title">{name}</h2>
-            <p className="badge badge-secondary capitalize text-accent dark:text-gray-300 ">
-              {brand}
-            </p>
-            <p>
-              <strong>Category:</strong> {category}
-            </p>
+            <div className="flex">
+              {" "}
+              <h2 className="card-title flex-3/2">{name}</h2>
+              <p className="badge badge-secondary capitalize text-accent dark:text-gray-300 flex-1/2">
+                {brand}
+              </p>
+            </div>
             <p>
               <strong>Available Quantity:</strong> {main_quantity} units
             </p>
@@ -48,12 +47,11 @@ const ProductCard = ({ product }) => {
               </span>
             </p>
             <Link
-              to={`/update/${_id}`}
+              to={`/productDetails/${_id}`}
               className="card-actions mt-4 justify-end"
             >
               <button className="btn btn-outline btn-primary dark:btn-secondary dark:hover:text-base-100 flex items-center gap-2">
-                <FaEdit />
-                Update
+                Details
               </button>
             </Link>
           </div>

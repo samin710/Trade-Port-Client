@@ -69,7 +69,7 @@ const AllProducts = () => {
       <div className="grid grid-cols-1 md:grid-cols-4 gap-6 md:space-y-0 space-y-4">
         {/* Sidebar */}
         <aside className="md:col-span-1 p-4 md:mt-22 rounded-xl border border-primary dark:border-secondary shadow-md h-fit md:sticky md:top-20 lg:top-24">
-          <h2 className="text-xl font-semibold mb-4">Filters</h2>
+          <h2 className="text-xl font-semibold mb-4">Choose your product</h2>
 
           {/* Search Input */}
           <input
@@ -91,7 +91,7 @@ const AllProducts = () => {
               step="1"
               value={priceRange[1]}
               onChange={(e) => setPriceRange([0, parseInt(e.target.value)])}
-              className="range range-primary dark:range-secondary w-full"
+              className="w-full range range-primary dark:range-secondary"
             />
           </div>
         </aside>

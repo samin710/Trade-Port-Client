@@ -6,6 +6,7 @@ import logoImg from "../../assets/logo.png";
 import { Tooltip } from "react-tooltip";
 import Loading from "../Loading/Loading";
 import ThemeToggle from "../DarkModeToggle/ThemeToggle";
+import { h1 } from "framer-motion/client";
 
 const Navbar = () => {
   const { user, logout, loading } = use(AuthContext);
@@ -133,40 +134,56 @@ const Navbar = () => {
                 All products
               </NavLink>
             </div>
+            {user && (
+              <>
+                <div>
+                  <NavLink
+                    to={"/addProduct"}
+                    className={({ isActive }) =>
+                      isActive
+                        ? " text-primary font-medium border-b-4 border-b-primary dark:border-b-base-100 dark:text-base-100 py-1"
+                        : " font-medium "
+                    }
+                  >
+                    Add Product
+                  </NavLink>
+                </div>
+                <div>
+                  <NavLink
+                    to={"/myProducts"}
+                    className={({ isActive }) =>
+                      isActive
+                        ? "text-primary font-medium border-b-4 border-b-primary dark:border-b-base-100 dark:text-base-100 py-1"
+                        : " font-medium"
+                    }
+                  >
+                    My products
+                  </NavLink>
+                </div>
+                <div>
+                  <NavLink
+                    to={"/cart"}
+                    className={({ isActive }) =>
+                      isActive
+                        ? " text-primary font-medium border-b-4 border-b-primary dark:border-b-base-100 dark:text-base-100 py-1"
+                        : " font-medium "
+                    }
+                  >
+                    Cart
+                  </NavLink>
+                </div>
+              </>
+            )}
             <div>
               <NavLink
-                to={"/addProduct"}
+                to={"/aboutUs"}
                 className={({ isActive }) =>
                   isActive
                     ? " text-primary font-medium border-b-4 border-b-primary dark:border-b-base-100 dark:text-base-100 py-1"
                     : " font-medium "
                 }
               >
-                Add Product
-              </NavLink>
-            </div>
-            <div>
-              <NavLink
-                to={"/myProducts"}
-                className={({ isActive }) =>
-                  isActive
-                    ? "text-primary font-medium border-b-4 border-b-primary dark:border-b-base-100 dark:text-base-100 py-1"
-                    : " font-medium"
-                }
-              >
-                My products
-              </NavLink>
-            </div>
-            <div>
-              <NavLink
-                to={"/cart"}
-                className={({ isActive }) =>
-                  isActive
-                    ? " text-primary font-medium border-b-4 border-b-primary dark:border-b-base-100 dark:text-base-100 py-1"
-                    : " font-medium "
-                }
-              >
-                Cart
+                About Us
               </NavLink>
             </div>
           </ul>

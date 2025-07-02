@@ -70,7 +70,7 @@ const Cart = () => {
           <p className="text-center text-gray-500">No products in your cart.</p>
         ) : (
           <>
-            <h1 className="text-2xl md:text-4xl py-10">
+            <h1 className="text-2xl md:text-4xl md:my-12 my-5">
               <GradientText
                 colors={[
                   "#40ffaa",

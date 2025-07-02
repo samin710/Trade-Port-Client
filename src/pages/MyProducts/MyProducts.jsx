@@ -36,7 +36,7 @@ const MyProducts = () => {
           </p>
         ) : (
           <>
-            <h1 className="py-10 text-2xl md:text-4xl">
+            <h1 className="md:my-12 my-5  text-2xl md:text-4xl">
               <GradientText
                 colors={[
                   "#40ffaa",

@@ -13,6 +13,7 @@ import CategoryWiseProducts from "../pages/CategoryWiseProducts/CategoryWiseProd
 import Update from "../pages/Update/Update";
 import ProductDetails from "../pages/ProductDetails/ProductDetails";
 import ErrorPage from "../pages/ErrorPage/ErrorPage";
+import AboutUs from "../pages/AboutUs/AboutUs";
 
 export const router = createBrowserRouter([
   {
@@ -78,6 +79,10 @@ export const router = createBrowserRouter([
             <Cart></Cart>
           </PrivateRoute>
         ),
+      },
+      {
+        path: "aboutUs",
+        Component: AboutUs,
       },
     ],
   },

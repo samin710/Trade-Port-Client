@@ -51,37 +51,69 @@ const Navbar = () => {
               tabIndex={0}
               className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow border dark:border-secondary border-primary space-y-2"
             >
-              <div className="p-2 rounded-lg text-center dark:border-secondary border-primary border cursor-pointer">
-                <NavLink to={"/"}>Home</NavLink>
-              </div>
-              <div className="p-2 rounded-lg text-center dark:border-secondary border-primary border cursor-pointer">
-                <NavLink to={"/categories"}>Categories</NavLink>
-              </div>
-              <div className="p-2 rounded-lg text-center dark:border-secondary border-primary border cursor-pointer">
-                <NavLink to={"/allProducts"}>All products</NavLink>
-              </div>
-              <div className="p-2 rounded-lg text-center dark:border-secondary border-primary border cursor-pointer">
-                <NavLink to={"/addProduct"}>Add Product</NavLink>
-              </div>
-              <div className="p-2 rounded-lg text-center dark:border-secondary border-primary border cursor-pointer">
-                <NavLink to={"/myProducts"}>My products</NavLink>
-              </div>
-              <div className="p-2 rounded-lg text-center dark:border-secondary border-primary border cursor-pointer">
-                <NavLink to={"/cart"}>Cart</NavLink>
-              </div>
+              <NavLink
+                to={"/"}
+                className="p-2 rounded-lg text-center dark:border-secondary border-primary border cursor-pointer"
+              >
+                <p>Home</p>
+              </NavLink>
+              <NavLink
+                to={"/categories"}
+                className="p-2 rounded-lg text-center dark:border-secondary border-primary border cursor-pointer"
+              >
+                <p>Categories</p>
+              </NavLink>
+              <NavLink
+                to={"/allProducts"}
+                className="p-2 rounded-lg text-center dark:border-secondary border-primary border cursor-pointer"
+              >
+                <p>All products</p>
+              </NavLink>
+
               {user ? (
-                <div className="p-2 rounded-lg text-center bg-secondary cursor-pointer">
-                  <button onClick={handleLogout}>SignOut</button>
-                </div>
+                <>
+                  {" "}
+                  <NavLink
+                    to={"/addProduct"}
+                    className="p-2 rounded-lg text-center dark:border-secondary border-primary border cursor-pointer"
+                  >
+                    <p>Add Product</p>
+                  </NavLink>
+                  <NavLink
+                    to={"/myProducts"}
+                    className="p-2 rounded-lg text-center dark:border-secondary border-primary border cursor-pointer"
+                  >
+                    <p>My products</p>
+                  </NavLink>
+                  <NavLink
+                    to={"/cart"}
+                    className="p-2 rounded-lg text-center dark:border-secondary border-primary border cursor-pointer"
+                  >
+                    <p>Cart</p>
+                  </NavLink>
+                  <div
+                    onClick={handleLogout}
+                    className="p-2 rounded-lg text-center bg-secondary cursor-pointer"
+                  >
+                    <button>SignOut</button>
+                  </div>
+                </>
               ) : (
-                <div className="space-y-2">
-                  <div className="p-2 rounded-lg text-center bg-secondary cursor-pointer">
-                    <NavLink to={"/signIn"}>SignIn</NavLink>
-                  </div>
-                  <div className="p-2 rounded-lg text-center bg-secondary cursor-pointer">
-                    <NavLink to={"/signUp"}>SignUp</NavLink>
-                  </div>
-                </div>
+                <>
+                  {" "}
+                  <NavLink
+                    to={"/signIn"}
+                    className="p-2 rounded-lg text-center bg-secondary cursor-pointer"
+                  >
+                    <p>SignIn</p>
+                  </NavLink>
+                  <NavLink
+                    to={"/signUp"}
+                    className="p-2 rounded-lg text-center bg-secondary cursor-pointer"
+                  >
+                    <p>SignUp</p>
+                  </NavLink>
+                </>
               )}
             </ul>
           </div>
